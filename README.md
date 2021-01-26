@@ -2,9 +2,16 @@
 Use this `REAMDE.md` file to describe your final project (as detailed on Canvas).
 
 ## Domain of Interest
-
+**Food Assistance and Nutrition in the United States**
 - Why are you interested in this field/domain?
+
 - What other examples of data driven project have you found related to this domain?
+
+1.
+2.
+3.
+4.
+
 - What data-driven questions do you hope to answer about this domain?
 
 ## Finding Data
@@ -14,3 +21,28 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 - How many observations (rows) are in your data?
 - How many features (columns) are in the data?
 - What questions (from above) can be answered using the data in this dataset?
+1.
+  -
+  -
+  -
+  -
+  -
+  
+2.
+  -
+  -
+  -
+  -
+  -
+3.
+  -
+  -
+  -
+  -
+  -
+4.
+  -
+  -
+  -
+  -
+  -
