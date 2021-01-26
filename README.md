@@ -19,7 +19,7 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 
   - Are certain geographical areas more prone to food insecurity/inequality?
   - How do demographics affect access to food assistance by distance?
-  - How do demographics affect the QUALITY of food assistance (freshness, nutrition content, price, eligibility).
+  - How do demographics affect the _quality_ of food assistance (freshness, nutrition content, price, eligibility).
   - Is SNAPs goal of enabling families to purchase healthy food successful?
 
 
