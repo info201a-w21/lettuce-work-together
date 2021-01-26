@@ -22,27 +22,9 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 - How many features (columns) are in the data?
 - What questions (from above) can be answered using the data in this dataset?
 1.
-  -
-  -
-  -
-  -
-  -
-  
+
 2.
-  -
-  -
-  -
-  -
-  -
+
 3.
-  -
-  -
-  -
-  -
-  -
+
 4.
-  -
-  -
-  -
-  -
-  -
