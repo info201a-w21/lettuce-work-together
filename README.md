@@ -7,7 +7,9 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 
 - What other examples of data driven project have you found related to this domain?
 
-1.
+**1. Washington Food Distribution** ([link](https://nras.maps.arcgis.com/apps/webappviewer/index.html?id=b1ad1be260fe4ef8b877fc7064b0649f))
+
+This ArcGIS map of Washington depicts the geographical distribution of all WA food assistance establishments, from food banks to tribal organizations. Each point on the map also provides contact, locational, and miscellaneous information about the establishment it represents.
 
 2.
 
