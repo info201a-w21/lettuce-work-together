@@ -11,7 +11,9 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 
 This ArcGIS map of Washington depicts the geographical distribution of all WA food assistance establishments, from food banks to tribal organizations. Each point on the map also provides contact, locational, and miscellaneous information about the establishment it represents.
 
-2.
+**2. Washington State Food Security Survey** ([Study measures food insecurity in Washington families - WSU Insider](https://news.wsu.edu/2020/11/19/wsu-helping-washington-families-facing-food-insecurity/))
+
+A joint study conducted by UW, WSU, and Tacoma Community College. This joint team, called WAFOOD Survey Team, conducted the first-of-its-kind state-wide survey about food insecurity in Washington, finding that 30% of WA households have experienced food insecurity ever since the stay-at-home order has been  implemented due to Covid-19 pandemic.
 
 3.
 
