@@ -15,7 +15,7 @@ This ArcGIS map of Washington depicts the geographical distribution of all WA fo
 
 A joint study conducted by UW, WSU, and Tacoma Community College. This joint team, called WAFOOD Survey Team, conducted the first-of-its-kind state-wide survey about food insecurity in Washington, finding that 30% of WA households have experienced food insecurity ever since the stay-at-home order has been  implemented due to Covid-19 pandemic.
 
-[**3. Northwest Harvest's Interactive Maps of Food insecurity in Washington State**](https://www.livestories.com/statistics/hunger-in-washington/washington/food-insecurity) 
+[**3. Northwest Harvest's Interactive Maps of Food insecurity in Washington State**](https://www.livestories.com/statistics/hunger-in-washington/washington/food-insecurity)
 
 Northwest Harvest is a nonprofit focused on supporting food banks in Washington state; their aim is to promote having access to nutritious food as a human right. Because of this, Northwest Harvest utilized public data to communicate the issue of food insecurity in Washington State. Their visualization shows data on the number of residents who are food insecure, have low access to grocery stores, and are receiving food assistance through Basic Foods (also known as SNAPs).
 
@@ -24,7 +24,7 @@ Northwest Harvest is a nonprofit focused on supporting food banks in Washington 
 - What data-driven questions do you hope to answer about this domain?
 
   - Are certain geographical areas more prone to food insecurity/inequality?
-  - How do demographics affect access to food assistance by distance?
+  - Are there correlations between demographics and distance which affect access to food assistance?
   - How do demographics affect the _quality_ of food assistance (freshness, nutrition content, price, eligibility).
   - Is SNAPs goal of enabling families to purchase healthy food successful?
 
