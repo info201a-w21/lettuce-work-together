@@ -6,7 +6,7 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 ## Food Assistance and Nutrition in the United States
 **Why are you interested in this field/domain?**
 
-Our team is interested in exploring food insecurity to better understand the social factors influencing unequal access to nutritious foods in the United States. We strive to do this by examining correlations between factors such as socioeconomic status, geographic location, education, and ethnicity. Additionally, our team is curious about the success of food assistance programs across the US. Because the implementation of the Supplemental Nutrition Assistance Program (SNAP) leaves room for state interpretation, the quality of accessible food through SNAP varies by state. We are interested to learn if the overall goal of providing access to nutritious foods is being met.
+Our team is interested in exploring food insecurity to better understand the social factors influencing unequal access to nutritious foods in the United States. We strive to do this by examining correlations between factors such as socioeconomic status, geographic location, education, and ethnicity. Additionally, our team is curious about the success of food assistance programs across the US. Because the implementation of the Supplemental Nutrition Assistance Program (SNAP) leaves room for state interpretation, the quality of accessible food through SNAP varies by state. We are interested in learning if the overall goal of providing access to nutritious foods is being met.
 
 **What other examples of data driven project have you found related to this domain?**
 
