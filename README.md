@@ -28,6 +28,7 @@ Northwest Harvest is a nonprofit focused on supporting food banks in Washington 
 To incentivize nutritious eating, Washington State implemented a fruit and vegetable incentive program. With financial support from the U.S. Department of Agriculture, SNAP users receive extra resources to spend on produce. These benefits apply to grocery stores and farmers markets state-wide.  
 
 
+
 **What data-driven questions do you hope to answer about this domain?**
 
   - Are certain geographical areas more prone to food insecurity/inequality?
