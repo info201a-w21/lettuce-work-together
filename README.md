@@ -23,7 +23,7 @@ A joint study conducted by UW, WSU, and Tacoma Community College. This joint tea
 
 Northwest Harvest is a nonprofit focused on supporting food banks in Washington state; their aim is to promote having access to nutritious food as a human right. Because of this, Northwest Harvest utilized public data to communicate the issue of food insecurity in Washington State. Their visualization shows data on the number of residents who are food insecure, have low access to grocery stores, and are receiving food assistance through Basic Foods (also known as SNAPs).
 
-**[3. Fruit and Vegetable Incentive Program](https://www.doh.wa.gov/ForPublicHealthandHealthcareProviders/PublicHealthSystemResourcesandServices/Funding/FruitandVegetableIncentivesProgram)**
+**[4. Fruit and Vegetable Incentive Program](https://www.doh.wa.gov/ForPublicHealthandHealthcareProviders/PublicHealthSystemResourcesandServices/Funding/FruitandVegetableIncentivesProgram)**
 
 To incentivize nutritious eating, Washington State implemented a fruit and vegetable incentive program. With financial support from the U.S. Department of Agriculture, SNAP users receive extra resources to spend on produce. These benefits apply to grocery stores and farmers markets state-wide.  
 
