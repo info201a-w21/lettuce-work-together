@@ -7,8 +7,8 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 
 - What other examples of data driven project have you found related to this domain?
 
-1.
-
+1. [linked phrase](https://www.doh.wa.gov/ForPublicHealthandHealthcareProviders/PublicHealthSystemResourcesandServices/Funding/FruitandVegetableIncentivesProgram)
+To incentivize nutritious eating, Washington State implemented a fruit and vegetable incentive program. With financial support from the U.S. Department of Agriculture, SNAP users receive extra resources to spend on produce. These benefits apply to grocery stores and farmers markets state-wide.  
 2.
 
 3.
