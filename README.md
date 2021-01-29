@@ -44,7 +44,13 @@ To incentivize nutritious eating, Washington State implemented a fruit and veget
 - How many observations (rows) are in your data?
 - How many features (columns) are in the data?
 - What questions (from above) can be answered using the data in this dataset?
-1.
+
+1.**Source:** [Economic Research Service, U.S. Department of Agriculture](https://www.ers.usda.gov/topics/food-nutrition-assistance/food-security-in-the-us/interactive-charts-and-highlights)
+**Data collection method:** This file contains five tabs with statistics on food security in the United States calculated by USDA's Economic Research Service (ERS). The data source for these statistics is the Current Population Survey Food Security Supplement (CPS-FSS) from the U.S. Census Bureau and sponsored by ERS.
+**Number of observations:** Anywhere between 40+ to 500+ observations on each of the 5 tabs.
+**Number of features:** Around 10 features per each tab
+**Questions that could be answered:** How many children were in a food insecure household in a given year? How did it change over the years? What was the proportion of food insecure households with children?
+
 
 2.
 
