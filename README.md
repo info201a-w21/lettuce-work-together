@@ -89,7 +89,7 @@ _The data is in a folder comprised of 10 excel documents, each with information 
  - State: 50 observations
 
 **Number of Features (in 2018)**
-- 18 features
+- County: 18 features
 - Congressional District: 16 features
 - State: 18 features
 
