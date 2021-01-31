@@ -95,4 +95,16 @@ _The data is in a folder comprised of 10 excel documents, each with information 
 
 **Questions that could be answered:** Questions regarding which regions of the United States are most food insecure and which specific counties are struggling can be answered. This data set can also provide information about the budget shortfalls, where one can answer the question of how much money is needed to ensure that those who are food insecure are fed. Because it gives a yearly report, one can provide answers for how food insecurity in the United States has changed over time.
 
-## 4. **Source**
+## 4. **Source:** [US Public Food Assistance](https://www.kaggle.com/jpmiller/publicassistance)
+**Source:** Kaggle, an online data science and machine learning community.
+
+**Data Collection Method:** US Census Bureau, US Dept of Agriculture: Data was downloaded in Excel format directly from [US government agency web sites](https://www.fns.usda.gov/pd/supplemental-nutrition-assistance-program-snap). No further information.
+
+**Number of Observations:** 51
+
+**Number of Features:** 6
+
+**Questions that could be answered:**
+- In what year was `average participation` highest?
+- What about `total benefits`?
+- What is the ratio of `total benefits` to `total costs` in the past 10 years?
