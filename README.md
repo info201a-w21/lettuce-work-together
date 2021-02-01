@@ -58,7 +58,7 @@ To incentivize nutritious eating, Washington State implemented a fruit and veget
 **Questions:**
 - What is the correlation between food prices and health?
 - Children from which communities are more vulnerable to food insecurity?
-- What are common factors of food deserts?
+- What are common factors of a food desert?
 
 
 ### **Source 3 - [Feeding America](https://map.feedingamerica.org)**
