@@ -56,9 +56,9 @@ To incentivize nutritious eating, Washington State implemented a fruit and veget
 **Number of Features:** ~362 (total)
 
 **Questions:**
-- Which geographical areas are more prone to food insecurity?
-- How do demographics and distance affect access to food assistance?
-- How do demographics affect the quality of food assistance?
+- What is the correlation between food prices and health?
+- Children from which communities are more vulnerable to food insecurity?
+- What are common factors of food deserts?
 
 
 ### **Source 3 - [Feeding America](https://map.feedingamerica.org)**
