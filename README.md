@@ -13,7 +13,7 @@ This ArcGIS map of Washington depicts the geographical distribution of all WA fo
 
 **2. [Washington State Food Security Survey](https://news.wsu.edu/2020/11/19/wsu-helping-washington-families-facing-food-insecurity/)**
 
-This is a joint study conducted by UW, WSU, and Tacoma Community College. Its joint team, 'WAFOOD Survey Team,' conducted the first-of-its-kind state-wide survey about food insecurity in Washington. For example, it reveals that 30% of WA households have experienced food insecurity since the implementation of the stay-at-home order due to COVID-19 pandemic.
+This is a joint study conducted by UW, WSU, and Tacoma Community College. Its team, 'WAFOOD Survey Team,' conducted the first-of-its-kind state-wide survey about food insecurity in Washington. For example, it reveals that 30% of WA households have experienced food insecurity since the implementation of the stay-at-home order due to COVID-19 pandemic.
 
 **3. [Northwest Harvest's Interactive Maps of Food Insecurity in Washington State](https://www.livestories.com/statistics/hunger-in-washington/washington/food-insecurity)**
 
@@ -63,15 +63,7 @@ To incentivize nutritious eating, Washington State implemented a fruit and veget
 
 ### **Source 3 - [Feeding America](https://map.feedingamerica.org)**
 
-**Data Collection Method:** This folder contains 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. The data came research done by Feeding America, a nonprofit organization with a network of over 200 foodbanks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS). ~~Each year, Feeding America releases a comprehensive study that helps understand “food insecurity and food costs at the local level” across the US. The map shows estimated food assistance eligibility among those experiencing food insecurity, per state and county. It also shows an estimate of how much money is still needed to meet the food needs of those who experience food insecurity.~~
-
-~~The data was collected through two types of community-level data:~~
-
-~~1. Local food insecurity estimates by income category for all individuals and children~~
-
-~~2. Local food expenditure estimates, both among those who are food secure and food insecure~~
-
-~~Feeding America conducted their own research drawing data from Current Population Survey (CPS), the American Community Survey (ACS), and the Bureau of Labor Statistics (BLS). Detailed descriptions of their methodology and a technical appendix can be found in their [technical brief document](https://www.feedingamerica.org/sites/default/files/2020-09/Map%20the%20Meal%20Gap%202020%20Technical%20Brief-Updated.pdf).~~
+**Data Collection Method:** This folder contains 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. The data comes from research done by Feeding America, a nonprofit organization with a network of over 200 foodbanks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS).
 
 **Number of Observations (2018):**
  - County: 3144
@@ -84,8 +76,8 @@ To incentivize nutritious eating, Washington State implemented a fruit and veget
 - State: 18
 
 **Questions:**
-- Which regions of the Us experience the most food insecurity?
-- Which counties?
+- Which regions of the US experience the most food insecurity?
+   - Which counties?
 - Where does the budget fall short of needed food assistance?
 - How much money is needed to ensure that those who experience food insecurity are fed?
 - How has food insecurity in the US changed over time?
