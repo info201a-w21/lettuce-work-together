@@ -16,7 +16,6 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
   )
 
 #Function that lists 2018 summary information about Food insecurity  
-
 summary__fd_insecurity_2018<- list(most_food_insecure, least_food_insecure, 
                                 avg_people_insecure)
   
@@ -51,10 +50,9 @@ avg_people_insecure <-paste("In 2018, there was an average of", round(Avg_num_fo
 
 
 
-
-
 # Function that lists 2018 summary information about Meal Costs 
-summary_meal_costs_2018 <- list(summary_expensive_meal_2018,summary_cheapest_meal_2018,summary_avg_cost)
+summary_meal_costs_2018 <- list(summary_expensive_meal_2018,summary_cheapest_meal_2018,summary_avg_cost,
+                                summary_meal_loss)
 
 # Pull the state with the highest meal cost 
 most_expensive_meal <- fa_2018 %>% 
@@ -88,14 +86,23 @@ price_cheapest_meal <-fa_2018 %>%
   pull(`2018 Cost Per Meal`) 
 # $2.64
 
-#Function that informs about the cheapest meal 
+# Function that informs about the cheapest meal 
 summary_cheapest_meal_2018 <-paste(cheapest_meal_2018, 
      "had the lowest average meal cost of 2018: $", price_cheapest_meal)
 
-#Function that calculates average meal cost in US
-#The data included WA DC as a state, which is why I divided by 51 
+# Function that calculates average meal cost in US
+#T he data included WA DC as a state, which is why I divided by 51 
 Avg_meal_cost <- (sum(fa_2018$`2018 Cost Per Meal`))/51
 # 3.089411764
 
-#Function that explains the average meal cost 
+# Function that explains the average meal cost 
 summary_avg_cost <-paste("In 2018, the average meal cost was $", round(Avg_meal_cost))
+
+# Function based on budget shortfall to calculate how many meals on average 
+# are not being consumed due to lack of funding
+num_meals_not_consumed <-(sum(fa_2018$`2018 Weighted Annual Food Budget Shortfall`))/(Avg_meal_cost)
+# 6,621,359,520 meals 
+
+#Function that explains how many meals are being lost because of budget shortfalls 
+summary_meal_loss <-paste("An average of", round(num_meals_not_consumed),
+  "meals are not being consumed in the U.S. due to food budget shortfalls")
