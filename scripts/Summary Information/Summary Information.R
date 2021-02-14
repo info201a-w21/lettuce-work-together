@@ -38,7 +38,6 @@ state_min_insecurity <- fa_2018 %>%
 #North Dakota 
 
 #Function that explains state min insecurity information for summary 
-
 least_food_insecure <-paste(state_min_insecurity, "was the least food insecure state of 2018")
 
 #Pull average number of people who are food insecure in the US in 2018 
@@ -47,5 +46,5 @@ Avg_num_food_insecure <- (sum(fa_2018$`# of Food Insecure Persons in 2018`))/51 
 # about 782,796 food insecure people per state
 
 #Function that explains the average number of food insecure people in 2018 
-avg_people_insecure <-paste("In 2018, there was an average of", round(Avg_num_food_insecure), "people who were food insecure 
-                            in the United States")
+avg_people_insecure <-paste("In 2018, there was an average of", round(Avg_num_food_insecure), 
+                            "people per state who were food insecure in the United States")
