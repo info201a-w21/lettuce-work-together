@@ -105,4 +105,4 @@ num_meals_not_consumed <-(sum(fa_2018$`2018 Weighted Annual Food Budget Shortfal
 
 #Function that explains how many meals are being lost because of budget shortfalls 
 summary_meal_loss <-paste("An average of", round(num_meals_not_consumed),
-  "meals are not being consumed in the U.S. due to food budget shortfalls")
+  "meals were not being consumed in the U.S. due to 2018 food budget shortfalls")
