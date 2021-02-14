@@ -15,9 +15,9 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
   skip =1, sheet = "2018 State"
   )
 
-#Function that lists 2018 summary information about Food insecurity  
+# Function that lists 2018 summary information about Food insecurity  
 summary__fd_insecurity_2018<- list(most_food_insecure, least_food_insecure, 
-                                avg_people_insecure)
+                                avg_people_insecure,summary_prop_food_insecure)
   
 # Pull the state with the highest food insecurity rate in 2018
   state_max_insecurity <- fa_2018 %>% 
@@ -29,7 +29,7 @@ summary__fd_insecurity_2018<- list(most_food_insecure, least_food_insecure,
 # Function that explains state max insecurity information for summary 
   most_food_insecure <- paste(state_max_insecurity, "was the most food insecure state of 2018")
     
-#Pull the state with the lowest food insecurity rate in 2018
+# Pull the state with the lowest food insecurity rate in 2018
 state_min_insecurity <- fa_2018 %>% 
   select (`State Name`,`2018 Food Insecurity Rate`) %>% 
   filter(`2018 Food Insecurity Rate` == min(`2018 Food Insecurity Rate`, na.rm =T)) %>%
@@ -40,13 +40,26 @@ state_min_insecurity <- fa_2018 %>%
 least_food_insecure <-paste(state_min_insecurity, "was the least food insecure state of 2018")
 
 # Pull average number of people who are food insecure in the US in 2018 
-#The data included WA DC as a state, which is why I divided by 51 
+# The data included WA DC as a state, which is why I divided by 51 
 Avg_num_food_insecure <- (sum(fa_2018$`# of Food Insecure Persons in 2018`))/51 %>% 
 # about 782,796 food insecure people per state
 
 # Function that explains the average number of food insecure people in 2018 
 avg_people_insecure <-paste("In 2018, there was an average of", round(Avg_num_food_insecure), 
                             "people per state who were food insecure in the United States")
+
+# Function that compares the national number of children who are food insecure to 
+# the national number of adults who are food insecure 
+
+prop_food_insecure <-(sum(fa_2018$`# of Food Insecure Children in 2018`))/
+  (sum(fa_2018$`# of Food Insecure Persons in 2018`))
+#0.31003 or about 30%
+# In 2018, for every 10 adults 3 children were food insecure 
+
+# Function that summarizes the ratio of adult to child food insecurity
+
+summary_prop_food_insecure <-paste("The proportion of food insecure children to adults is", prop_food_insecure, 
+              ". In other words, for every 10 adults there were about 3 children who were food insecure in the US in 2018")
 
 
 
