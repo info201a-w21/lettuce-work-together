@@ -115,7 +115,18 @@ summary_avg_cost <-paste("In 2018, the average meal cost was $", round(Avg_meal_
 # are not being consumed due to lack of funding
 num_meals_not_consumed <-(sum(fa_2018$`2018 Weighted Annual Food Budget Shortfall`))/(Avg_meal_cost)
 # 6,621,359,520 meals 
+total_food_insecure <-sum(fa_2018$`# of Food Insecure Persons in 2018`)
+# 39,922,630
+
+# Divided by 3 to calculate for 3 meals each day 
+num_of_meals_missed_by_day<-num_meals_not_consumed/3
+#2,207,119,840 meals per day 
+
+#Divide number of meals by people 
+num_days_lost<-num_of_meals_missed_by_day/total_food_insecure
+#55.28 days of missed meals due to budget falls
 
 #Function that explains how many meals are being lost because of budget shortfalls 
 summary_meal_loss <-paste("An average of", round(num_meals_not_consumed),
-  "meals were not being consumed in the U.S. due to 2018 food budget shortfalls")
+  "meals were not consumed in the U.S. due to 2018 food budget shortfalls. This means each food insecure adult experienced about", 
+  round(num_days_lost), "days of missed meals")
