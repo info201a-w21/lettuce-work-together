@@ -30,7 +30,7 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 ## Introductory Paragraph 
-
+Our team is interested in exploring food insecurity to better understand the social factors influencing unequal access to nutritious foods in the United States. We are also curious about the success of food assistance programs across the US to learn if the overall goal of providing access to nutritious foods is being met. The data set we analyzed comes from research conducted by Feeding America, a nonprofit organization with a network of over 200 food banks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS). While we focused primarily on data from the most recent year (2018), Feed America provided 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. This data set helps our team better answer questions about the scale of American food insecurity and its financial needs. 
 
 ## Summary Paragraph 
 
