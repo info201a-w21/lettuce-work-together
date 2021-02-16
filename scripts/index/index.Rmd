@@ -42,7 +42,7 @@ Given that food prices typically impact access to food, we also compared meal co
 library(tidyverse)
 library(readxl)
 #Load data 
-fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx", 
+fa_2018 <- read_excel("C:/Users/Gabby/Documents/info201/lettuce-work-together/lettuce-work-together/DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx", 
                       skip =1, sheet = "2018 State")
 #Make table focused on the financial aspects of food insecurity 
 financial_df <- fa_2018 %>% 
