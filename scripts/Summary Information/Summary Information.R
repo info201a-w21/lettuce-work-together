@@ -8,6 +8,8 @@ library(tidyverse)
 library(dplyr)
 library(readxl)
 library(plyr)
+library(styler)
+library(lintr)
 
 # Load data
 
@@ -132,3 +134,4 @@ num_days_lost<-num_of_meals_missed_by_day/total_food_insecure
 summary_meal_loss <-paste("An average of", round(num_meals_not_consumed),
   "meals were not consumed in the U.S. due to 2018 food budget shortfalls. This means each food insecure adult experienced about", 
   round(num_days_lost), "days of missed meals")
+

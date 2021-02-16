@@ -23,6 +23,7 @@ select(`State Name`,`2018 Cost Per Meal`, `2018 Weighted Annual Food Budget Shor
  group_by(`State Name`) %>% 
   mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`) 
 
+# Pertient Observations 
 
   
   
