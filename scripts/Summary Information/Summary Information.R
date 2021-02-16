@@ -17,8 +17,9 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
 
 # Function that lists 2018 summary information about Food insecurity  
 summary__fd_insecurity_2018<- list(most_food_insecure, least_food_insecure, 
-                                avg_people_insecure,summary_prop_food_insecure)
-  
+                                   avg_people_insecure,summary_prop_food_insecure)
+
+
 # Pull the state with the highest food insecurity rate in 2018
   state_max_insecurity <- fa_2018 %>% 
     select(`State Name`, `2018 Food Insecurity Rate`) %>% 
@@ -41,7 +42,7 @@ least_food_insecure <-paste(state_min_insecurity, "was the least food insecure s
 
 # Pull average number of people who are food insecure in the US in 2018 
 # The data included WA DC as a state, which is why I divided by 51 
-Avg_num_food_insecure <- (sum(fa_2018$`# of Food Insecure Persons in 2018`))/51 %>% 
+Avg_num_food_insecure <-(sum(fa_2018$`# of Food Insecure Persons in 2018`))/51  
 # about 782,796 food insecure people per state
 
 # Function that explains the average number of food insecure people in 2018 
@@ -52,7 +53,8 @@ avg_people_insecure <-paste("In 2018, there was an average of", round(Avg_num_fo
 # the national number of adults who are food insecure 
 
 prop_food_insecure <-(sum(fa_2018$`# of Food Insecure Children in 2018`))/
-  (sum(fa_2018$`# of Food Insecure Persons in 2018`))
+  (sum(fa_2018$`# of Food Insecure Persons in 2018`)) %>% 
+  round(digits = 2)
 #0.31003 or about 30%
 # In 2018, for every 10 adults 3 children were food insecure 
 
