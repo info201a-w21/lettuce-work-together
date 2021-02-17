@@ -6,28 +6,19 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(dplyr)
+library(readxl)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+# Load data
+fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
+  skip = 1, sheet = "2018 State"
+)
+source("scripts/Table of Summary Info.R")
+source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 ## Introductory Paragraph 
 Our team is interested in exploring food insecurity to better understand the social factors influencing unequal access to nutritious foods in the United States. We are also curious about the success of food assistance programs across the US to learn if the overall goal of providing access to nutritious foods is being met. The data set we analyzed comes from research conducted by Feeding America, a nonprofit organization with a network of over 200 food banks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS). While we focused primarily on data from the most recent year (2018), Feeding America provided 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. This data set helps our team better answer questions about the scale of American food insecurity and its financial needs. 
@@ -37,18 +28,8 @@ Our analysis revealed that in 2018, there was an average of 782,797 people per s
 
 Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as \$3.00; however, Texas had the lowest meal cost of \$2.64 while Washington, D.C. had the highest meal cost of $4.08. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of 55 days-worth of missed meals in 2018. 
 
-```{r set up, include=FALSE}
-library(knitr)
-library(kableExtra)
-library(tidyverse)
-library(dplyr)
-setwd("C:/Users/starr/Google Drive/Main Projects/School (UW)/2020-2021/Winter Quarter/Technical Foundations (INFO 201)/lettuce-work-together/scripts")
-```
-
-
 ## Table of Aggregated Data
-```{r aggregated table, echo=FALSE, eval=TRUE}
-source("Table of Summary Info.R")
+```{r aggregatedtable, echo=FALSE, eval=TRUE}
 kable(financial_df) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
@@ -57,11 +38,9 @@ kable(financial_df) %>%
 
 
 ## Chart 2 - Budget Shortfall per Food-Insecure Person in 2018
-```{r, echo=FALSE}
-source("Chart 2 - Shortfall per Insecure 2018.R")
+```{r chart2, echo=FALSE}
 plot(shortfall_per_insecure)
 ```
-
 
 ## Chart 3 + Purpose
 
