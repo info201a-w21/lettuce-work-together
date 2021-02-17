@@ -24,13 +24,6 @@ select(`State Name`,`2018 Cost Per Meal`, `2018 Weighted Annual Food Budget Shor
   mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`)
  
 
-# Table styling 
-library(knitr)
-library(kableExtra)
-
-kable(financial_df) %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F)
-
 # Pertient Observations
 max_meals_lost <-financial_df %>% 
   select(`State Name`, `Meals Not Consumed due to Budget Shortfall`)%>% 

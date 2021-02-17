@@ -40,23 +40,18 @@ Given that food prices typically impact access to food, we also compared meal co
 ```{r set up, include=FALSE}
 library(knitr)
 library(kableExtra)
+library(tidyverse)
+library(dplyr)
 
 # Source the analysis 
-source("Table of Summary Info.R")
+source("scripts/Table of Summary Information/Table of Summary Info.R")
 ```
 
 
 ## Table of Aggregated Data
 ```{r aggregated table, echo=FALSE, eval=TRUE}
-#Load data 
-fa_2018 <- read_excel("C:/Users/Gabby/Documents/info201/lettuce-work-together/lettuce-work-together/DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx", 
-                      skip =1, sheet = "2018 State")
-#Make table focused on the financial aspects of food insecurity 
-financial_df <- fa_2018 %>% 
-select(`State Name`,`2018 Cost Per Meal`, `2018 Weighted Annual Food Budget Shortfall`)  %>% 
- group_by(`State Name`) %>% 
-  mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`) 
-print(financial_df)
+kable(financial_df) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
 ## Chart 1 + Purpose 
