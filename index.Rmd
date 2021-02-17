@@ -6,10 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-chooseCRANmirror(graphics=FALSE,
-ind = 1)
 knitr::opts_chunk$set(echo = TRUE)
-library(knitr)
 ```
 
 ## R Markdown
@@ -45,14 +42,13 @@ library(knitr)
 library(kableExtra)
 library(tidyverse)
 library(dplyr)
-
-# Source the analysis 
-source("scripts/Table of Summary Information/Table of Summary Info.R")
+setwd("C:/Users/starr/Google Drive/Main Projects/School (UW)/2020-2021/Winter Quarter/Technical Foundations (INFO 201)/lettuce-work-together/scripts")
 ```
 
 
 ## Table of Aggregated Data
 ```{r aggregated table, echo=FALSE, eval=TRUE}
+source("Table of Summary Info.R")
 kable(financial_df) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
@@ -62,6 +58,7 @@ kable(financial_df) %>%
 
 ## Chart 2 - Budget Shortfall per Food-Insecure Person in 2018
 ```{r, echo=FALSE}
+source("Chart 2 - Shortfall per Insecure 2018.R")
 plot(shortfall_per_insecure)
 ```
 
