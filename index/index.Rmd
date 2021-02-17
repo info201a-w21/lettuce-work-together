@@ -38,8 +38,8 @@ Our analysis revealed that in 2018, there was an average of 782,797 people per s
 Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as $3.00; however, Texas had the lowest meal cost of $2.64 while Washington, D.C. had the highest meal cost of $4.08. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of 55 days-worth of missed meals in 2018. 
 
 ```{r set up, include=FALSE}
-library(tidyverse)
-library(readxl)
+library(knitr)
+library(kableExtra)
 
 # Source the analysis 
 source("Table of Summary Info.R")

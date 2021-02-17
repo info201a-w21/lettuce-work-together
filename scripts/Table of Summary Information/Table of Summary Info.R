@@ -21,9 +21,18 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
 financial_df <- fa_2018 %>% 
 select(`State Name`,`2018 Cost Per Meal`, `2018 Weighted Annual Food Budget Shortfall`)  %>% 
  group_by(`State Name`) %>% 
-  mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`) 
+  mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`)
+ 
 
-# Pertient Observations 
+# Table styling 
+library(knitr)
+library(kableExtra)
 
-  
-  
+kable(financial_df) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F)
+
+# Pertient Observations
+max_meals_lost <-financial_df %>% 
+  select(`State Name`, `Meals Not Consumed due to Budget Shortfall`)%>% 
+  filter(`Meals Not Consumed due to Budget Shortfall`==max(`Meals Not Consumed due to Budget Shortfall`, na.rm =T))%>% 
+  pull(`State Name`) 
