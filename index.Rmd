@@ -6,7 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+chooseCRANmirror(graphics=FALSE,
+ind = 1)
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
 ```
 
 ## R Markdown
@@ -35,27 +38,32 @@ Our team is interested in exploring food insecurity to better understand the soc
 ## Summary Paragraph 
 Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that Mississippi had the highest food insecurity rate (0.187), which was contrasted by North Dakota with the lowest food insecurity rate (0.068). We also examined the proportion of food insecure children to food insecure adults to learn that for every 10 food insecure adults there were about 3 food insecure children in the US in 2018. 
 
-Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as $3.00; however, Texas had the lowest meal cost of $2.64 while Washington, D.C. had the highest meal cost of $4.08. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of 55 days-worth of missed meals in 2018. 
+Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as \$3.00; however, Texas had the lowest meal cost of \$2.64 while Washington, D.C. had the highest meal cost of $4.08. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of 55 days-worth of missed meals in 2018. 
+
+```{r set up, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(dplyr)
+
+# Source the analysis 
+source("scripts/Table of Summary Information/Table of Summary Info.R")
+```
+
 
 ## Table of Aggregated Data
-```{r aggregated table}
-library(tidyverse)
-library(readxl)
-#Load data 
-fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx", 
-                      skip =1, sheet = "2018 State")
-#Make table focused on the financial aspects of food insecurity 
-financial_df <- fa_2018 %>% 
-select(`State Name`,`2018 Cost Per Meal`, `2018 Weighted Annual Food Budget Shortfall`)  %>% 
- group_by(`State Name`) %>% 
-  mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`) 
-print(financial_df)
+```{r aggregated table, echo=FALSE, eval=TRUE}
+kable(financial_df) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
 ## Chart 1 + Purpose 
 
 
-## Chart 2 + Purpose
+## Chart 2 - Budget Shortfall per Food-Insecure Person in 2018
+```{r, echo=FALSE}
+plot(shortfall_per_insecure)
+```
 
 
 ## Chart 3 + Purpose

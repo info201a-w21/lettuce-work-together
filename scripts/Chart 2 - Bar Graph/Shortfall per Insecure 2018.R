@@ -32,7 +32,7 @@ fa_2018_top_10_shortfall <- fa_2018 %>%
 
 # Create visualization - bar graph
 # 1 categorical (state) and 1 continuous (shortfall) variable
-ggplot(data = fa_2018_top_10_shortfall) +
+shortfall_per_insecure <- ggplot(data = fa_2018_top_10_shortfall) +
   geom_col(mapping = aes(
     x = reorder(`State Name`, shortfall_per_insecure),
     y = shortfall_per_insecure,
