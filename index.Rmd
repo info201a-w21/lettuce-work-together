@@ -35,7 +35,7 @@ Our team is interested in exploring food insecurity to better understand the soc
 ## Summary Paragraph 
 Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that Mississippi had the highest food insecurity rate (0.187), which was contrasted by North Dakota with the lowest food insecurity rate (0.068). We also examined the proportion of food insecure children to food insecure adults to learn that for every 10 food insecure adults there were about 3 food insecure children in the US in 2018. 
 
-Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as $3.00; however, Texas had the lowest meal cost of $2.64 while Washington, D.C. had the highest meal cost of $4.08. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of 55 days-worth of missed meals in 2018. 
+Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as \$3.00; however, Texas had the lowest meal cost of \$2.64 while Washington, D.C. had the highest meal cost of $4.08. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of 55 days-worth of missed meals in 2018. 
 
 ```{r set up, include=FALSE}
 library(knitr)
@@ -57,7 +57,10 @@ kable(financial_df) %>%
 ## Chart 1 + Purpose 
 
 
-## Chart 2 + Purpose
+## Chart 2 - Budget Shortfall per Food-Insecure Person in 2018
+```{r, echo=FALSE}
+plot(shortfall_per_insecure)
+```
 
 
 ## Chart 3 + Purpose
