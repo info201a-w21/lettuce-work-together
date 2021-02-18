@@ -1,18 +1,20 @@
+# AUTHOR: Sang-Won Yu
+
 # Import packages
 library(tidyverse)
 library(readxl)
 
 # Read excel files
-fa_2009 <- read_excel("../../DATA/Feeding America Data/MMG2011_2009Data_ToShare.xlsx", sheet = "State", .name_repair = "universal")
-fa_2010 <- read_excel("../../DATA/Feeding America Data/MMG2012_2010Data_ToShare.xlsx", sheet = "State", .name_repair = "universal")
-fa_2011 <- read_excel("../../DATA/Feeding America Data/MMG2013_2011Data_ToShare.xlsx", sheet = "2011 State ", .name_repair = "universal")
-fa_2012 <- read_excel("../../DATA/Feeding America Data/MMG2014_2012Data_ToShare.xlsx", sheet = "2012 State", .name_repair = "universal")
-fa_2013 <- read_excel("../../DATA/Feeding America Data/MMG2015_2013Data_ToShare.xlsx", sheet = "2013 State", .name_repair = "universal")
-fa_2014 <- read_excel("../../DATA/Feeding America Data/MMG2016_2014Data_ToShare.xlsx", sheet = "2014 State", .name_repair = "universal")
-fa_2015 <- read_excel("../../DATA/Feeding America Data/MMG2017_2015Data_ToShare.xlsx", sheet = "2015 State", .name_repair = "universal")
-fa_2016 <- read_excel("../../DATA/Feeding America Data/MMG2018_2016Data_ToShare.xlsx", sheet = "2016 State", .name_repair = "universal")
-fa_2017 <- read_excel("../../DATA/Feeding America Data/MMG2019_2017Data_ToShare.xlsx", sheet = "2017 State", .name_repair = "universal")
-fa_2018 <- read_excel("../../DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx", skip =1, sheet = "2018 State", .name_repair = "universal")
+fa_2009 <- read_excel("DATA/Feeding America Data/MMG2011_2009Data_ToShare.xlsx", sheet = "State", .name_repair = "universal")
+fa_2010 <- read_excel("DATA/Feeding America Data/MMG2012_2010Data_ToShare.xlsx", sheet = "State", .name_repair = "universal")
+fa_2011 <- read_excel("DATA/Feeding America Data/MMG2013_2011Data_ToShare.xlsx", sheet = "2011 State ", .name_repair = "universal")
+fa_2012 <- read_excel("DATA/Feeding America Data/MMG2014_2012Data_ToShare.xlsx", sheet = "2012 State", .name_repair = "universal")
+fa_2013 <- read_excel("DATA/Feeding America Data/MMG2015_2013Data_ToShare.xlsx", sheet = "2013 State", .name_repair = "universal")
+fa_2014 <- read_excel("DATA/Feeding America Data/MMG2016_2014Data_ToShare.xlsx", sheet = "2014 State", .name_repair = "universal")
+fa_2015 <- read_excel("DATA/Feeding America Data/MMG2017_2015Data_ToShare.xlsx", sheet = "2015 State", .name_repair = "universal")
+fa_2016 <- read_excel("DATA/Feeding America Data/MMG2018_2016Data_ToShare.xlsx", sheet = "2016 State", .name_repair = "universal")
+fa_2017 <- read_excel("DATA/Feeding America Data/MMG2019_2017Data_ToShare.xlsx", sheet = "2017 State", .name_repair = "universal")
+fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx", skip =1, sheet = "2018 State", .name_repair = "universal")
 
 # Create dataframes with State.Name and Food.Insecurity.Rate only
 foodsec_18 <- fa_2018 %>% summarize(
@@ -56,10 +58,19 @@ decade <- gather(
   -State
 )
 
+# Remove the heading "X" from years
+decade$year <- substring(decade$year, 2)
+
+# GROUP_BY DOESN'T WORK WHEN CALLED FROM INDEX.RMD
+# THIS PORTION WILL BE KEPT FOR FUTURE REFERENCE
 # Get the average of food insecurity nationwide each year
+
+# decade <- group_by(decade, year)
+# us_avg_insec <- dplyr::summarize(decade, mean_food_insec = mean(food_insec))
+
 us_avg_insec <- decade %>%
   group_by(year) %>%
-  summarize(mean_food_insec = mean(food_insec))
+  dplyr::summarize(mean_food_insec = mean(food_insec))
 
 # Plot the line graph
 g <- ggplot(data = us_avg_insec) +
