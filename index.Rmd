@@ -4,18 +4,14 @@ author: "Lettuce Work Together"
 date: "2/11/2021"
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
+chooseCRANmirror(graphics=FALSE, ind=1)
+knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(kableExtra)
 library(tidyverse)
 library(dplyr)
 library(readxl)
-knitr::opts_chunk$set(echo=FALSE, message=FALSE)
-# Load data
-fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
-  skip = 1, sheet = "2018 State"
-)
 source("scripts/Table of Summary Info.R")
 source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
 ```
