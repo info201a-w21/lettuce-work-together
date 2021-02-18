@@ -17,12 +17,10 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
 
 
 # Aggregate table focused on the financial aspects of food insecurity
-
 financial_df <- fa_2018 %>% 
 select(`State Name`,`2018 Cost Per Meal`, `2018 Weighted Annual Food Budget Shortfall`)  %>% 
  group_by(`State Name`) %>% 
-  mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`)
- 
+  mutate(`Meals Not Consumed due to Budget Shortfall` =`2018 Weighted Annual Food Budget Shortfall`/ `2018 Cost Per Meal`) 
 
 # Pertient Observations
 max_meals_lost <-financial_df %>% 
