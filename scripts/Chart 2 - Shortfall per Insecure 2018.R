@@ -44,5 +44,4 @@ shortfall_per_insecure <- ggplot(data = fa_2018_top_10_shortfall) +
     y = "Shortfall ($)"
   ) +
   coord_flip() +
-  scale_color_brewer(palette = "Set3") +
   theme(legend.position = "none")
