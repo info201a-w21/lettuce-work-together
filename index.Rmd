@@ -32,7 +32,7 @@ kable(financial_df) %>%
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
-This table shows that food budget shortfalls were prevalent throughout the US in 2018. As a result, each state had food insecure people who suffered from meal loss. An observation one can make is that North Dakota has both the cheapest meal cost and lowest meal loss from budget shortfalls. However, this does _not_ mean that meal cost has a direct correlation to meal loss. For instance, Texas has the lowest meal cost yet the highest meal loss—in this case, budget shortfalls were not influenced by the cost of food. This begs the question: what influences budget shortfalls and/or inadequate funding for nutrition assistance programs? Further exploration of factors outside of economic influence, such as social determinants, could help answer this question. 
+This table displays the prevalence of food budget shortfalls throughout the U.S. and its impact on meals in 2018. By utilizing the average meal costs, we were able to calculate an estimated meal loss that food insecure people suffered in each state as a result of budget shortfalls. An observation one can make is that North Dakota has both the cheapest meal cost and lowest meal loss from budget shortfalls. However, this does _not_ mean that meal cost has a direct correlation to meal loss. For instance, Texas has the lowest meal cost yet the highest meal loss—in this case, budget shortfalls were not influenced by the cost of food. This begs the question: what influences budget shortfalls and/or inadequate funding for nutrition assistance programs? Further exploration of factors outside of economic influence, such as social determinants, could help answer this question. 
 
 ## Chart 1 + Purpose 
 
