@@ -45,9 +45,6 @@ min_meal_lost <-financial_df %>%
 
 # North Dakota continues has both the cheapest meal cost and lowest meal loss from budget shortfalls 
 
-# Average Meal Loss 
-avg_meal_loss <-(sum(financial_df$`Meals Not Consumed due to Budget Shortfall`))/51
-
 # Style and Lint Code
 library(styler)
 library(lintr)
