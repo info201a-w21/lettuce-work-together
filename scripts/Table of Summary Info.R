@@ -48,6 +48,3 @@ min_meal_lost <-financial_df %>%
 # Style and Lint Code
 library(styler)
 library(lintr)
-
-style_file("Table of Summary Info.R")
-lint("Table of Summary Info.R")
