@@ -23,54 +23,72 @@ source("scripts/Chart 1 - Insecurity over Time.R")
   The data set we analyzed comes from research conducted by Feeding America, a nonprofit organization with a network of over 200 food banks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS). While we focused primarily on data from the most recent year (2018), Feeding America provided 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. This data set helps our team better answer questions about the scale of American food insecurity and its financial needs. 
 
 ## Summary 
-  Our analysis revealed that in 2018, there was an **average of 782,797 people** per state who were food insecure in the United States. By taking a closer look, we found that **Mississippi** had the highest food insecurity rate (**0.187**), which was contrasted by **North Dakota** with the lowest food insecurity rate (**0.068**). We also examined the proportion of food insecure children to food insecure adults to learn that for every *10 food insecure adults* there were about *3 food insecure children* in the US in 2018. 
+  Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that **Mississippi had the highest food insecurity rate** (0.187), which was contrasted by **North Dakota which had the lowest food insecurity rate** (0.068). We also examined the proportion of food insecure children to food insecure adults to learn that _for every 10 food insecure adults there were about 3 food insecure children in the U.S. in 2018_.
 
-  Given that food prices typically impact access to food, we also compared meal costs across the United States. The average meal costs as **$3.00**; however, **Texas** had the *lowest* meal cost of **$2.64** while **Washington, D.C.** had the *highest* meal cost of **$4.08**. Using the 2018 food budget shortfall data, we were able to calculate that an *average of 6,621,359,520 meals* were not consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of **55 days-worth of missed meals in 2018**.
+  Given that food prices typically impact access to food, we also compared meal costs across the United States. The **average meal cost was $3.00**; however, **Texas had the lowest meal cost of $2.64**, while **Washington, D.C. had the highest meal cost of $4.08**. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were _not_ consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of **55 days-worth of missed meals in 2018**.
 
-## 2018 Shortfall of Federal Nutrition Assistance Programs per State 
+## Table: Shortfall of Federal Nutrition Assistance Programs per State (2018)
 ```{r aggregated table, echo=FALSE, eval=TRUE}
 kable(financial_df) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
-This table displays the prevalence of food budget shortfalls throughout the U.S. and its impact on meals in 2018. By utilizing the average meal costs, we were able to calculate an estimated meal loss that food insecure people suffered in each state as a result of budget shortfalls. An observation one can make is that North Dakota has both the cheapest meal cost and lowest meal loss from budget shortfalls. However, this does _not_ mean that meal cost has a direct correlation to meal loss. For instance, Texas has the lowest meal cost yet the highest meal loss—in this case, budget shortfalls were not influenced by the cost of food. This begs the question: what influences budget shortfalls and/or inadequate funding for nutrition assistance programs? Further exploration of factors outside of economic influence, such as social determinants, could help answer this question. 
+This table displays the prevalence of food budget shortfalls throughout the U.S. and its impact on meals in 2018. 
 
-## Chart 1 - Food Insecurity Rate over the Decade
+### Purpose
+By utilizing the average meal costs, we were able to calculate an estimated meal loss that food insecure people suffered in each state as a result of budget shortfalls. 
+
+### Insights 
+- North Dakota had an above-average meal cost yet experienced the lowest meal loss from budget shortfalls.
+- Texas had the lowest meal cost nationally, but still recorded the highest meal loss. 
+- The fact that meal cost and meal loss are not correlated signifies that **budget shortfalls were not influenced by the cost of food.** 
+  - This begs the question: what influences budget shortfalls and/or inadequate funding for nutrition assistance programs? Further exploration of factors outside of economic influence, such as social determinants, could help answer this question. 
+
+## Chart 1: Food Insecurity Rate over the Decade
 ```{r chart1, echo=FALSE, message=FALSE}
 plot(g)
 ```
 
+This chart displays the national trend of food insecurity rate in the U.S between 2009 and 2018. 
+
 ### Purpose
-We have included this chart in order to reveal the national trend of food
-insecurity rate in the U.S., between 2009 and 2018. In the original dataset,
-food insecurity rate for each state is included. We have aggregated these state level food insecurity rates by each year and obtained its average, which is the national average of food insecurity rate each year.
+By aggregating the state food insecurity rates by year, we can analyze the rise and fall of food insecurity throughout the years. Being able to identify **key years** of increased or decreased food insecurity in the U.S. allows us to explore **contextual influences** to food insecurity. 
 
 ### Insights
-In the chart we can see that the rate sees an increase from 2009 to 2011, then sees a decline until 2018. One possible explanation for this may be the economic impact caused by the 2008 financial crisis that lasted through early 2010s, and the gradual economic recovery afterwards.
+- Food insecurity rate **increases from 2009 to 2011** and then **decreases until 2018**.
+  - This trend may be influenced by the economic impact caused by the 2008
+financial crisis, which lasted through early 2010. The declining rates of food insecurity could then reflect the country's gradual economic 
+recovery. 
 
 ## Chart 2: Budget Shortfall per Food-Insecure Person (2018)
 ```{r chart2, echo=FALSE}
 plot(chart2)
 ```
 
-This chart reveals how much money was still needed* to meet the needs of food-insecure individuals in the US in 2018. It shows the states with the 5 highest and 5 lowest shortfalls.
+This chart reveals how much money was still needed to meet the needs of food-insecure individuals in the US in 2018. It shows the states with the 5 highest and 5 lowest shortfalls.
 
 ### Purpose
-This chart allows us to compare the states, taking into account varying population, so that we might see which ones are most and least in need.
-
-Similarly, this chart shows the range of shortfalls-per-person by showing the top and bottom states. This orients our sense of what is a "high" and a "low" budget shortfall.
-
-Finally, this chart breaks down the deficit to an individual level. This is easier to absorb than the overall state shortfall
+Taking into account the varying population, this chart allows us to compare the states so that we might see which ones are most and least in need. Similarly, this chart shows the range of shortfalls-per-person by showing the top and bottom states. This orients our sense of what is a "high" and a "low" budget shortfall.Finally, this chart breaks down the deficit to an individual level. This is easier to absorb than the overall state shortfall
 
 ### Insights
-- **Washington D.C.** has a shortfall of almost **$700/person****, significantly higher than the next highest states. This may indicate that D.C. is the most in need of funding toward food insecurity.
-- The **difference** between the highest and lowest shortfall is **$200/person****. This range is relatively small, so most states have roughly the same level of need.
-- Food-insecure individuals missed from around **$450 to almost $700 needed** to fulfill their food needs. There is still a lot of work to be done to bring this down to $0.
+- **Washington D.C.** has a shortfall of almost **$700/person**, significantly higher than the next highest states. 
+  - This may indicate that D.C. is the most in need of funding toward food insecurity.
+- The **difference** between the highest and lowest shortfall is **$200/person**. 
+  - This range is relatively small, so most states have roughly the same level of need.
+- Food-insecure individuals missed from around **$450 to almost $700 needed** to fulfill their food needs. 
+  - There is still a lot of work to be done to bring this down to $0.
 
 \* As estimated by Feeding America Research Team
 
 ** Person experiencing food insecurity
 
-## Chart 3 + Purpose
+## Chart 3: 
+```{r chart3, echo=FALSE}
+
+```
+### quick sentence about what your chart shows 
+
+### Purpose (couple sentences)
 
 
+### Insights (bullet list)
