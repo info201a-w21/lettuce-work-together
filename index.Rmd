@@ -15,6 +15,7 @@ library(readxl)
 source("scripts/Table of Summary Info.R")
 source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
 source("scripts/Chart 1 - Insecurity over Time.R")
+source("scripts/Chart 3 - Meal Cost over Time.R")
 ```
 
 ## Introduction
@@ -75,5 +76,7 @@ Finally, this chart breaks down the deficit to an individual level. This is easi
 ** Person experiencing food insecurity
 
 ## Chart 3 + Purpose
-
-
+```{r chart3, echo=FALSE}
+plot(chart)
+```
+This scatterplot observes the correlation between food insecurity and meal cost in 2018. Each point represents a US state; some states have similar rates and there are few outliers. Using a scatterplot helps interpret and visualize the data easily. From the chart, we can tell that food insecurity and meal cost differ between states. One outlier in the data is Washington DC, which has the highest meal cost, but an average insecurity rate. On the flip side, Mississippi has a relatively low meal cost but the highest food insecurity rate. These observations raise questions about the impact of meal cost on food insecurity and vice versa. 
