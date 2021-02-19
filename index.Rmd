@@ -14,6 +14,7 @@ library(dplyr)
 library(readxl)
 source("scripts/Table of Summary Info.R")
 source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
+source("scripts/Chart 1 - Insecurity over Time.R")
 ```
 
 ## Introduction
@@ -46,8 +47,7 @@ One possible explanation for this may be the economic impact caused by the 2008
 financial crisis that lasted through early 2010s, and the gradual economic 
 recovery afterwards. 
 ```{r chart1, echo=FALSE, message=FALSE}
-source("scripts/Chart 1 - Insecurity over Time.r")
-g
+plot()
 ```
 
 
