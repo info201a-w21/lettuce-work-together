@@ -47,7 +47,7 @@ One possible explanation for this may be the economic impact caused by the 2008
 financial crisis that lasted through early 2010s, and the gradual economic 
 recovery afterwards. 
 ```{r chart1, echo=FALSE, message=FALSE}
-plot()
+plot(g)
 ```
 
 
