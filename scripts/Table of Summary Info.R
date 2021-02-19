@@ -44,3 +44,10 @@ min_meal_lost <-financial_df %>%
   pull(`State Name`)
 
 # North Dakota continues has both the cheapest meal cost and lowest meal loss from budget shortfalls 
+
+# Style and Lint Code
+library(styler)
+library(lintr)
+
+style_file("Table of Summary Info.R")
+lint("Table of Summary Info.R")

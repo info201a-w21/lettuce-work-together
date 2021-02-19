@@ -34,7 +34,21 @@ kable(financial_df) %>%
 
 This table displays the prevalence of food budget shortfalls throughout the U.S. and its impact on meals in 2018. By utilizing the average meal costs, we were able to calculate an estimated meal loss that food insecure people suffered in each state as a result of budget shortfalls. An observation one can make is that North Dakota has both the cheapest meal cost and lowest meal loss from budget shortfalls. However, this does _not_ mean that meal cost has a direct correlation to meal loss. For instance, Texas has the lowest meal cost yet the highest meal loss—in this case, budget shortfalls were not influenced by the cost of food. This begs the question: what influences budget shortfalls and/or inadequate funding for nutrition assistance programs? Further exploration of factors outside of economic influence, such as social determinants, could help answer this question. 
 
-## Chart 1 + Purpose 
+## Chart 1 - Food Insecurity Rate over the Decade
+
+I have included this chart in order to reveal the national trend of food
+insecurity rate in the U.S., between 2009 and 2018. In the original data set,
+food insecurity rate for each state is included. I have aggregated these state
+level food insecurity rates by each year and obtained its average, which is the
+national average of food insecurity rate each year. In the chart we can see that
+the rate sees an increase from 2009 to 2011, then sees a decline until 2018. 
+One possible explanation for this may be the economic impact caused by the 2008
+financial crisis that lasted through early 2010s, and the gradual economic 
+recovery afterwards. 
+```{r chart1, echo=FALSE, message=FALSE}
+source("scripts/Chart 1 - Insecurity over Time.r")
+g
+```
 
 
 ## Chart 2: Budget Shortfall per Food-Insecure Person (2018)
