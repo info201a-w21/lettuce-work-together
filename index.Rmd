@@ -58,7 +58,7 @@ By aggregating the state food insecurity rates by year, we can analyze the rise 
 ### Insights
 - Food insecurity rate **increases from 2009 to 2011** and then **decreases until 2018**.
   - This trend may be influenced by the economic impact caused by the 2008
-financial crisis, which lasted through early 2010. The declining rates of food insecurity could then reflect the country's gradual economic 
+financial crisis, which lasted through early 2010s. The declining rates of food insecurity could then reflect the country's gradual economic 
 recovery. 
 
 ## Chart 2: Budget Shortfall per Food-Insecure Person (2018)
@@ -91,10 +91,10 @@ plot(chart)
 This chart reveals the correlation between food insecurity and meal cost in 2018. 
 
 ### Purpose 
-Using a scatterplot makes the data easier to interpret and more visually pleasing. Each point on the plot represents a US state and we can observe each states relationship between food insecurity and meal cost. From the chart, we can tell that food insecurity and meal cost differ between states. 
+Using a scatterplot makes the data easier to interpret and more visually pleasing. Each point on the plot represents a US state and we can observe each state's relationship between food insecurity and meal cost. From the chart, we can tell that food insecurity and meal cost differ between states. 
 
 ### Insights 
 - There are a few outliers in the data
   - **Washington D.C.** has the highest meal cost but an average food insecurity rate
   - **Mississippi** has a relatively low meal cost but the highest food insecurity rate
-- The observations raise questions about the impact of meal cost on food insecurity and vice versa
+- The observations raise questions about the impact of meal cost on food insecurity and vice versa. By looking at the chart, we can say that lower the meal cost, lower the food insecurity rate in general. 
