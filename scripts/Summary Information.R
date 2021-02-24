@@ -2,10 +2,6 @@
 # Summary Information
 
 # Install and load packages
-install.packages("readxl")
-install.packages("plyr")
-install.packages("lintr")
-install.packages("snakecase")
 library(snakecase)
 library(tidyverse)
 library(dplyr)

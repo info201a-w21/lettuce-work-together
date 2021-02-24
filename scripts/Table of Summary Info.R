@@ -3,9 +3,6 @@
 
 
 # Install and load packages 
-install.packages("readxl")
-install.packages("plyr")
-install.packages("scales")
 library(tidyverse)
 library(dplyr)
 library(readxl)
