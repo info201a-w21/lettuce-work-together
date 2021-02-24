@@ -5,6 +5,8 @@
 install.packages("readxl")
 install.packages("plyr")
 install.packages("lintr")
+install.packages("snakecase")
+library(snakecase)
 library(tidyverse)
 library(dplyr)
 library(readxl)
