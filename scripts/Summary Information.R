@@ -17,10 +17,10 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
 )
 
 # Function that lists 2018 summary information about Food insecurity
-summary__fd_insecurity_2018 <- list(
-  most_food_insecure, least_food_insecure,
-  avg_people_insecure, summary_prop_food_insecure
-)
+#summary__fd_insecurity_2018 <- list(
+  #most_food_insecure, least_food_insecure,
+  #avg_people_insecure, summary_prop_food_insecure
+#)
 
 
 # Pull the state with the highest food insecurity rate in 2018
@@ -32,8 +32,8 @@ state_max_insecurity <- fa_2018 %>%
 # Mississippi
 
 # Function that explains state max insecurity information for summary
-most_food_insecure <- paste(state_max_insecurity, 
-                            "was the most food insecure state of 2018")
+#most_food_insecure <- paste(state_max_insecurity, 
+                           # "was the most food insecure state of 2018")
 
 # Pull the state with the lowest food insecurity rate in 2018
 state_min_insecurity <- fa_2018 %>%
@@ -77,10 +77,10 @@ summary_prop_food_insecure <- paste(
 
 
 # Function that lists 2018 summary information about Meal Costs
-summary_meal_costs_2018 <- list(
-  summary_expensive_meal_2018, summary_cheapest_meal_2018, summary_avg_cost,
-  summary_meal_loss
-)
+#summary_meal_costs_2018 <- list(
+ # summary_expensive_meal_2018, summary_cheapest_meal_2018, summary_avg_cost,
+  #summary_meal_loss
+#)
 
 # Pull the state with the highest meal cost
 most_expensive_meal <- fa_2018 %>%
@@ -97,10 +97,10 @@ price_most_expensive_meal <- fa_2018 %>%
 # $4.08
 
 # Function that informs about the most expensive meal
-summary_expensive_meal_2018 <- paste(
-  most_expensive_meal,
-  "had the most expensive average meal cost of 2018:$", price_most_expensive_meal
-)
+#summary_expensive_meal_2018 <- paste(
+ # most_expensive_meal,
+  #"had the most expensive average meal cost of 2018:$", price_most_expensive_meal
+#)
 
 # Pull the state with the lowest meal cost
 cheapest_meal_2018 <- fa_2018 %>%
