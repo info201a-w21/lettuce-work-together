@@ -151,7 +151,3 @@ summary_meal_loss <- paste(
   "meals were not consumed in the U.S. due to 2018 food budget shortfalls. This means each food insecure adult experienced about",
   round(num_days_lost), "days of missed meals"
 )
-
-# Style and Lint Code
-style_file("Summary Information.R")
-lint("Summary Information.R")

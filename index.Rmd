@@ -5,7 +5,6 @@ date: "2/19/2021"
 output: html_document
 ---
 ```{r setup, include=FALSE}
-chooseCRANmirror(graphics = FALSE, ind = 1)
 knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(kableExtra)
@@ -16,6 +15,7 @@ source("scripts/Table of Summary Info.R")
 source("scripts/Chart 1 - Insecurity over Time.R")
 source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
 source("scripts/Chart 3 - Meal Cost over Time.R")
+source("scripts/Summary Information.R")
 ```
 
 ## Introduction
@@ -24,10 +24,9 @@ source("scripts/Chart 3 - Meal Cost over Time.R")
   The data set we analyzed comes from research conducted by Feeding America, a nonprofit organization with a network of over 200 food banks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS). While we focused primarily on data from the most recent year (2018), Feeding America provided 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. This data set helps our team better answer questions about the scale of American food insecurity and its financial needs.
 
 ## Summary
-Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that `most_food_insecure` **Mississippi had the highest food insecurity rate** (0.187), which was contrasted by **North Dakota which had the lowest food insecurity rate** (0.068). We also examined the proportion of food insecure children to food insecure adults to learn that _for every 10 food insecure adults there were about 3 food insecure children in the U.S. in 2018_.
+Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that `r most_food_insecure` **Mississippi had the highest food insecurity rate** (0.187), which was contrasted by `state_min_insecurity` **North Dakota which had the lowest food insecurity rate** (0.068). We also examined the proportion of food insecure children to food insecure adults to learn that _for every 10 food insecure adults there were about 3 food insecure children in the U.S. in 2018_.
 
   Given that food prices typically impact access to food, we also compared meal costs across the United States. The **average meal cost was $3.00**; however, **Texas had the lowest meal cost of $2.64**, while **Washington, D.C. had the highest meal cost of $4.08**. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were _not_ consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of **55 days-worth of missed meals in 2018**.
-
 
 ## Table: Budget Shortfall (2018)
 ```{r aggregated table, echo=FALSE, eval=TRUE}
