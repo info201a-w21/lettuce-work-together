@@ -11,25 +11,24 @@ library(kableExtra)
 library(tidyverse)
 library(dplyr)
 library(readxl)
-source("scripts/Table of Summary Info.R")
-source("scripts/Chart 1 - Insecurity over Time.R")
-source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
-source("scripts/Chart 3 - Meal Cost over Time.R")
-source("scripts/Summary Information.R")
 ```
 
 ## Introduction
   Our team is interested in exploring food insecurity to better understand any social factors influencing unequal access to nutritious foods in the United States. We are also curious about the success of food assistance programs across the US to learn if the overall goal of providing access to nutritious foods is being met.
 
   The data set we analyzed comes from research conducted by Feeding America, a nonprofit organization with a network of over 200 food banks. Feeding America drew local food insecurity and expenditure estimates from the Current Population Survey (CPS), American Community Survey (ACS), and Bureau of Labor Statistics (BLS). While we focused primarily on data from the most recent year (2018), Feeding America provided 10 data files (for years 2009-2018) about food insecurity at the county, congressional district, and state levels. This data set helps our team better answer questions about the scale of American food insecurity and its financial needs.
-
+  
+```{r summary info, echo=FALSE, eval=TRUE}
+source("scripts/Summary Information.R")
+```
 ## Summary
-Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that `r most_food_insecure` **Mississippi had the highest food insecurity rate** (0.187), which was contrasted by `state_min_insecurity` **North Dakota which had the lowest food insecurity rate** (0.068). We also examined the proportion of food insecure children to food insecure adults to learn that _for every 10 food insecure adults there were about 3 food insecure children in the U.S. in 2018_.
+Our analysis revealed that in 2018, there was an average of 782,797 people per state who were food insecure in the United States. By taking a closer look, we found that **`r most_food_insecure`**, which was contrasted by `state_min_insecurity`. We also examined the proportion of food insecure children to food insecure adults, which was (**`prop_food_insecure`**). This means that _for every 10 food insecure adults there were about 3 food insecure children in the U.S. in 2018_.
 
-  Given that food prices typically impact access to food, we also compared meal costs across the United States. The **average meal cost was $3.00**; however, **Texas had the lowest meal cost of $2.64**, while **Washington, D.C. had the highest meal cost of $4.08**. Using the 2018 food budget shortfall data, we were able to calculate that an average of 6,621,359,520 meals were _not_ consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of **55 days-worth of missed meals in 2018**.
+  Given that food prices typically impact access to food, we also compared meal costs across the United States. The **average meal cost was `Avg_meal_cost`**; however, **`cheapest_meal_2018` had the lowest meal cost of `price_cheapest_meal`**, while **`most_expensive_meal` had the highest meal cost of `price_most_expensive_meal`**. Using the 2018 food budget shortfall data, we were able to calculate that an average of `num_meals_not_consumed` meals were _not_ consumed in the U.S. due to the shortfalls. In other words, each food insecure adult experienced an estimated of **`num_days_lost` days-worth of missed meals in 2018**.
 
 ## Table: Budget Shortfall (2018)
 ```{r aggregated table, echo=FALSE, eval=TRUE}
+source("scripts/Table of Summary Info.R")
 kable(financial_df) %>%
 kable_styling(bootstrap_options = "striped", full_width = F)
 ```
@@ -47,6 +46,7 @@ By utilizing the average meal costs, we were able to calculate an estimated meal
 
 ## Chart 1: Food Insecurity Rate (2009-2018)
 ```{r chart1, echo=FALSE, message=FALSE}
+source("scripts/Chart 1 - Insecurity over Time.R")
 plot(g)
 ```
 
@@ -63,6 +63,7 @@ recovery.
 
 ## Chart 2: Budget Shortfall per Food-Insecure Person (2018)
 ```{r chart2, echo=FALSE}
+source("scripts/Chart 2 - Shortfall per Insecure 2018.R")
 plot(chart2)
 ```
 
@@ -85,6 +86,7 @@ Taking into account the varying population, this chart allows us to compare the 
 
 ## Chart 3: Food Insecurity Rate vs. Meal Cost (2018)
 ```{r chart3, echo=FALSE}
+source("scripts/Chart 3 - Meal Cost over Time.R")
 plot(chart)
 ```
 
