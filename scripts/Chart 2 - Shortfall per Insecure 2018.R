@@ -5,8 +5,6 @@
 library(tidyverse)
 library(ggplot2)
 library(readxl)
-library(styler)
-library(lintr)
 
 # Load data
 fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
