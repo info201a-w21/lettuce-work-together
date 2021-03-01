@@ -1,14 +1,12 @@
 # GABRIELLA ALONSO
 # Summary Information
 
-# Install and load packages
+# Load packages
 library(snakecase)
 library(tidyverse)
 library(dplyr)
 library(readxl)
 library(plyr)
-library(styler)
-library(lintr)
 
 # Load data
 
@@ -19,26 +17,30 @@ fa_2018 <- read_excel("DATA/Feeding America Data/MMG2020_2018Data_ToShare.xlsx",
 # Pull the state with the highest food insecurity rate in 2018
 state_max_insecurity <- fa_2018 %>%
   select(`State Name`, `2018 Food Insecurity Rate`) %>%
-  filter(`2018 Food Insecurity Rate` == max(`2018 Food Insecurity Rate`, 
-                                            na.rm = T)) %>%
+  filter(`2018 Food Insecurity Rate` == max(`2018 Food Insecurity Rate`,
+    na.rm = T
+  )) %>%
   pull(`State Name`)
 # Mississippi
 
 # Pull the state with the lowest food insecurity rate in 2018
 state_min_insecurity <- fa_2018 %>%
   select(`State Name`, `2018 Food Insecurity Rate`) %>%
-  filter(`2018 Food Insecurity Rate` == min(`2018 Food Insecurity Rate`, 
-                                            na.rm = T)) %>%
+  filter(`2018 Food Insecurity Rate` == min(`2018 Food Insecurity Rate`,
+    na.rm = T
+  )) %>%
   pull(`State Name`)
 # North Dakota
 
 # Pull average number of people who are food insecure in the US in 2018
 # The data included WA DC as a state, which is why I divided by 51
-Avg_num_food_insecure <- round((sum(fa_2018$`# of Food Insecure Persons in 2018`)) / 51)
+avg_num_food_insecure <- round(
+  (sum(fa_2018$`# of Food Insecure Persons in 2018`)) / 51
+)
 # about 782,796 food insecure people per state
 
-# Function that compares the national number of children who are food insecure to
-# the national number of adults who are food insecure
+# Function that compares the national number of children who are food insecure
+# to the national number of adults who are food insecure
 prop_food_insecure <- (sum(fa_2018$`# of Food Insecure Children in 2018`)) /
   (sum(fa_2018$`# of Food Insecure Persons in 2018`)) %>%
     round(digits = 2)
@@ -75,12 +77,14 @@ price_cheapest_meal <- fa_2018 %>%
 
 # Function that calculates average meal cost in US
 # T he data included WA DC as a state, which is why I divided by 51
-Avg_meal_cost <- (sum(fa_2018$`2018 Cost Per Meal`)) / 51
+avg_meal_cost <- (sum(fa_2018$`2018 Cost Per Meal`)) / 51
 # 3.089411764
 
 # Function based on budget shortfall to calculate how many meals on average
 # are not being consumed due to lack of funding
-num_meals_not_consumed <- (sum(fa_2018$`2018 Weighted Annual Food Budget Shortfall`)) / (Avg_meal_cost)
+num_meals_not_consumed <- sum(
+  fa_2018$`2018 Weighted Annual Food Budget Shortfall`
+) / (avg_meal_cost)
 # 6,621,359,520 meals
 total_food_insecure <- sum(fa_2018$`# of Food Insecure Persons in 2018`)
 # 39,922,630
