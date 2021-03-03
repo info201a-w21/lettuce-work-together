@@ -1,12 +1,10 @@
-library(shiny)
+# Load libraries
+library("shiny")
 
-# Define UI for application that draws a histogram
-ui <- fluidPage()
+# Use source() to execute the `app_ui.R` and `app_server.R` files. These will
+# define the UI value and server function respectively.
+source("app_ui.R")
+source("app_server.R")
 
-# Define server logic 
-server <- function(input, output) {
-
-}
-
-# Run the application 
+# Create a new `shinyApp()` using the loaded `ui` and `server` variables
 shinyApp(ui = ui, server = server)
