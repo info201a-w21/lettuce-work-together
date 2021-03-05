@@ -2,7 +2,7 @@
 library(dplyr)
 
 # Read in data
-source()
+source("shiny-scripts/Chart 2 - Shortfall per Insecure.R")
 
 # Start shinyServer
 server <- function(input, output) { 
