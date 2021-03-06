@@ -26,7 +26,7 @@ intro_panel <- tabPanel(
   budget shortfalls of food assistance programs."),  
   p("In addition, we utilized data calculated by USDA's Economic Research
   Service (ERS) to gain insights concerning the relationship between access to 
-  healthyfood and demographics. ERS sourced its statistics from Current
+  healthy food and demographics. ERS sourced its statistics from Current
   Population Survey Food Security Supplement (CPS-FSS) from the U.S. Census
   Bureau.The data from ERS helped us understand any demographic factors 
   influencing inequal access to nutritious foods in the United States."),
@@ -53,9 +53,17 @@ bar_panel <- tabPanel(
 
 # Chart 3 page
 
+
+# Conclusion page 
+concl_panel <-tabPanel(
+  "Conclusion",
+  titlePanel("Insights")
+)
+
 # Define UI for application that draws ....
 ui <- navbarPage(
   "Food Insecurity in the U.S.",
   intro_panel,
-  bar_panel
+  bar_panel,
+  concl_panel
 )
