@@ -40,6 +40,16 @@ intro_panel <- tabPanel(
 # Chart 1 page
 
 # Chart 2 page
+# Year dropdown menu
+bar_year <- selectInput(
+  inputId = "bar_year",
+  label = "Choose year",
+  choices = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016",
+              "2017", "2018")
+)
+
+# Color choices
+
 # Visualization
 bar_main_content <- mainPanel(
   plotlyOutput("bar")
@@ -48,6 +58,7 @@ bar_main_content <- mainPanel(
 # Entire page
 bar_panel <- tabPanel(
   "Budget Shortfall",
+  bar_year,
   bar_main_content
 )
 
