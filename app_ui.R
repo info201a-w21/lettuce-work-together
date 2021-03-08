@@ -44,11 +44,21 @@ intro_panel <- tabPanel(
 bar_year <- selectInput(
   inputId = "bar_year",
   label = "Choose year",
-  choices = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016",
-              "2017", "2018")
+  choices = c(
+    "X2012",
+    "X2013",
+    "X2014",
+    "X2015",
+    "X2016",
+    "X2017",
+    "X2018"
+  ),
+  
+  plotlyOutput("bar")
+  
 )
 
-# Color choices
+# Text input to choose top #
 
 # Visualization
 bar_main_content <- mainPanel(
