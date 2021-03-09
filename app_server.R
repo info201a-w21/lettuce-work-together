@@ -11,14 +11,13 @@ server <- function(input, output) {
   output$bar <- renderPlotly({
     # Plot 2 - Shortfall per Person
     # Gather top 5
-    shortfall_top_5 <- shortfall_per_person %>%
+    shortfall_top_n <- shortfall_per_person %>%
       filter(year == input$bar_year) %>%
-      arrange(desc(shortfall)) %>%
-      top_n(5)
+      slice_max(order_by = shortfall, n = input$bar_top_n)
     
     # Create plot
     plot2 <- plot_ly(
-      data = shortfall_top_5,
+      data = shortfall_top_n,
       x = ~reorder(State, shortfall),
       y = ~shortfall,
       type = "bar",
@@ -26,7 +25,7 @@ server <- function(input, output) {
       showlegend = F
     ) %>% 
       layout(
-        title = "Top 5 State Shortfalls",
+        title = paste0("Top ", input$bar_top_n, " State Shortfalls"),
         xaxis = list(title = "State"),
         yaxis = list(title = "Shortfall", tickprefix = "$")
       )

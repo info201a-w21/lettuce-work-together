@@ -58,7 +58,14 @@ bar_year <- selectInput(
   
 )
 
-# Text input to choose top #
+bar_top_n <- numericInput(
+  inputId = "bar_top_n",
+  label = "Choose how many states to display",
+  value = 5,
+  min = 1,
+  max = 51,
+  step = 1
+)
 
 # Visualization
 bar_main_content <- mainPanel(
@@ -69,6 +76,7 @@ bar_main_content <- mainPanel(
 bar_panel <- tabPanel(
   "Budget Shortfall",
   bar_year,
+  bar_top_n,
   bar_main_content
 )
 
