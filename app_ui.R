@@ -83,7 +83,9 @@ bar_panel <- tabPanel(
 )
 
 # Chart 3 page
-
+map_panel <- tabPanel(
+  "Food Insecurity Map",
+plotlyOutput("map"))
 
 # Conclusion page 
 concl_panel <-tabPanel(
