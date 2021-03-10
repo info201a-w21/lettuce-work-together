@@ -5,7 +5,7 @@ library(plotly)
 
 # Read in data
 source("shiny-scripts/Chart 2 - Shortfall per Insecure.R")
-source("shiny-scripts/Chart 3 - % FI > High Threshold.R")
+source("shiny-scripts/Chart 3 - Food insecurity map.R")
 
 # Start shinyServer
 server <- function(input, output) { 
