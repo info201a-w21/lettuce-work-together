@@ -18,14 +18,14 @@ server <- function(input, output) {
     # Create plot
     plot2 <- plot_ly(
       data = shortfall_top_n,
-      x = ~reorder(State, shortfall),
+      x = ~reorder(State.Name, -shortfall),
       y = ~shortfall,
       type = "bar",
-      color = ~State,
+      color = ~State.Name,
       showlegend = F
     ) %>% 
       layout(
-        title = paste0("Top ", input$bar_top_n, " State Shortfalls"),
+        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", input$bar_year),
         xaxis = list(title = "State"),
         yaxis = list(title = "Shortfall", tickprefix = "$")
       )

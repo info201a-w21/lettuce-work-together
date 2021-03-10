@@ -40,20 +40,21 @@ intro_panel <- tabPanel(
 # Chart 1 page
 
 # Chart 2 page
+# Sidebar
 # Year dropdown menu
 bar_year <- selectInput(
   inputId = "bar_year",
   label = "Choose year",
   choices = c(
-    "X2012",
-    "X2013",
-    "X2014",
-    "X2015",
-    "X2016",
-    "X2017",
-    "X2018"
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012"
   ),
-  
+
   plotlyOutput("bar")
   
 )
@@ -67,6 +68,7 @@ bar_top_n <- numericInput(
   step = 1
 )
 
+# Main page
 # Visualization
 bar_main_content <- mainPanel(
   plotlyOutput("bar")
