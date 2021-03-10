@@ -5,6 +5,7 @@ library(plotly)
 
 # Read in data
 source("shiny-scripts/Chart 2 - Shortfall per Insecure.R")
+source("shiny-scripts/Chart 3 - % FI > High Threshold.R")
 
 # Start shinyServer
 server <- function(input, output) { 
@@ -33,4 +34,10 @@ server <- function(input, output) {
     # Return plot
     return(plot2)
   })
-}
+
+  # Plot 3 - map
+  output$map <- renderPlotly({
+    title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
+    us_map
+  })
+  }
