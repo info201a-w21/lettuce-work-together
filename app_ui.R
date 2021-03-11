@@ -38,7 +38,24 @@ intro_panel <- tabPanel(
   p("By: Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang")
   ))
 # Chart 1 page
-
+line_panel <- tabPanel(
+  "Food Insecurity Line Graph",
+  titlePanel("Annual Food Insecurity Rates, 2009 - 2018"),
+  # Drop down menu
+  selectInput(
+    inputId = "line_selection",
+    label = "Choose the line",
+    choices = c(
+      "National",
+      "Black",
+      "Hispanic",
+      "White"
+    ),
+    selected = "National"
+  ),
+  # Output the line plot
+  plotlyOutput("line_plot")
+)
 # Chart 2 page
 # Sidebar
 # Year dropdown menu
@@ -97,6 +114,8 @@ concl_panel <-tabPanel(
 ui <- navbarPage(
   "Food Insecurity in the U.S.",
   intro_panel,
+  line_panel,
   bar_panel,
+  map_panel,
   concl_panel
 )
