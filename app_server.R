@@ -25,11 +25,11 @@ server <- function(input, output) {
       color = ~State.Name,
       showlegend = F
     ) %>% 
-      layout(
-        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", input$bar_year),
-        xaxis = list(title = "State"),
-        yaxis = list(title = "Shortfall", tickprefix = "$")
-      )
+    layout(
+      title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", input$bar_year),
+      xaxis = list(title = "State"),
+      yaxis = list(title = "Shortfall", tickprefix = "$")
+    )
     
     # Return plot
     return(plot2)

@@ -40,25 +40,32 @@ intro_panel <- tabPanel(
 # Chart 1 page
 
 # Chart 2 page
-# Sidebar
-# Year dropdown menu
-bar_year <- selectInput(
+# # Widget 1: year dropdown menu
+# bar_year <- selectInput(
+#   inputId = "bar_year",
+#   label = "Choose year",
+#   choices = c(
+#     "2018",
+#     "2017",
+#     "2016",
+#     "2015",
+#     "2014",
+#     "2013",
+#     "2012"
+#   )
+# )
+# Widget 1: year slider
+bar_year <- sliderInput(
   inputId = "bar_year",
-  label = "Choose year",
-  choices = c(
-    "2018",
-    "2017",
-    "2016",
-    "2015",
-    "2014",
-    "2013",
-    "2012"
-  ),
-
-  plotlyOutput("bar")
-  
+  label = "Select a year:",
+  min = 2012,
+  max = 2018,
+  value = 2018,
+  # ticks = F,
+  sep = ""
 )
 
+# Widget 2: top N numeric input
 bar_top_n <- numericInput(
   inputId = "bar_top_n",
   label = "Choose how many states to display",
@@ -68,7 +75,13 @@ bar_top_n <- numericInput(
   step = 1
 )
 
-# Main page
+# Sidebar
+bar_sidebar <- sidebarPanel(
+  bar_year,
+  bar_top_n
+)
+
+# Main content
 # Visualization
 bar_main_content <- mainPanel(
   plotlyOutput("bar")
@@ -77,8 +90,7 @@ bar_main_content <- mainPanel(
 # Entire page
 bar_panel <- tabPanel(
   "Budget Shortfall",
-  bar_year,
-  bar_top_n,
+  bar_sidebar,
   bar_main_content
 )
 
