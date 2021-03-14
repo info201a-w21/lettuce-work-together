@@ -142,43 +142,42 @@ concl_panel <-tabPanel(
     national food insecurity rates have been steadily decreasing"), 
     "since 2011. In fact, average food insecurity rates hit an all-time 
     low of 0.162 in 2018. While this is great news, our line graph, 
-    unfortunately, also highlights how", strong ("food insecurity has been 
-    disproportionately felt."), "In addition to experiencing food insecurity 
+    unfortunately, also highlights how", strong ("food insecurity has 
+    disproportionately affected people."), "In addition to experiencing food insecurity 
     rates that are above the U.S. national average, Black and Hispanic 
     Americans are around twice as likely to experience food insecurity 
     than White Americans.",
-  p(style = "font-size:16px;","To compliment our study of the demographics 
+  p(style = "font-size:16px;","To complement our study of the demographics 
     of American food insecurity, our team also explored financial factors. 
     Since our earlier research revealed that budget shortfalls in food
     assistance programs had a higher impact on food insecurity than meal 
     costs, we created a bar chart to further examine these shortfalls. Our 
-    chart draws to attention", strong("five states that have consistently
+    chart draws reveals", strong("five states that have consistently
     experienced the highest shortfalls per food-insecure person from 
     2012 -2018: District of Columbia, Massachusetts, Maine, Alaska, 
     and Vermont."), "These states are most in need of receiving additional
     financial assistance to help meet the needs of their food
-    insecure populations. As an example, the District of Columbia 
+    insecure populations. For example, the District of Columbia 
     was short an average of $690.28 per food-insecure person in 2018. 
     Using their average meal cost of $4.08,", strong("around 169 meals per 
     person were not consumed in the District of Columbia due to budget
     shortfalls.")),
-  p(style = "font-size:16px;","To further explore how financial factors reveal 
-    insights into influences on food insecurity in the U.S., we 
-    created a map to understand where the percentage of food insecure people 
-    is greater than the high poverty threshold.", em("In other words, it 
-    examines where people are not poor yet still food insecure."), "Our map 
-    reveals that the", strong("American Midwest"), "tends to have more 
+  p(style = "font-size:16px;","To further explore the impact of financial factors  
+    on food insecurity in the U.S., we created a map to understand where the percentage 
+    of food-insecure people is greater than the high poverty threshold.", 
+    em("In other words, it examines where people are not poor yet still food insecure."), 
+    "Our map reveals that the", strong("American Midwest"), "tends to have more 
     financially-able food insecure people. Additionally,", strong("Vermont"), 
-    "stands out as a state with constantly high levels of food insecure 
+    "stands out as a state with consistently high levels of food insecure 
     people who have the resources to purchase healthy foods. While there 
     are many explanations for this,", strong("it suggests that these states 
-    tend to have more food deserts, where there are less ways to access 
+    tend to have more food deserts, where there are fewer ways to access 
     and purchase nutritious foods.")),
   p(style = "font-size:16px;","Overall, our study sheds light on the 
     complexity of U.S. food insecurity. While general food insecurity rates 
     are decreasing, factors such as demographics, budget shortfalls,
     and potential food deserts continue to limit access to food. The 
-    information revealed from this project can be used to provide targeted 
+    information revealed in this project can facilitate targeted 
     help to vulnerable states and provide insight into social factors
     influencing food insecurity.")
 ))
