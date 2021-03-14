@@ -165,58 +165,58 @@ fa_2018 <- read_excel(
 )
 
 # Join all dfs by state
-df <- fa_2018 %>% 
-  left_join(fa_2017, by = "State.Name") %>% 
-  left_join(fa_2016, by = "State.Name") %>% 
-  left_join(fa_2015, by = "State.Name") %>% 
-  left_join(fa_2014, by = "State.Name") %>% 
-  left_join(fa_2013, by = "State.Name") %>% 
+df <- fa_2018 %>%
+  left_join(fa_2017, by = "State.Name") %>%
+  left_join(fa_2016, by = "State.Name") %>%
+  left_join(fa_2015, by = "State.Name") %>%
+  left_join(fa_2014, by = "State.Name") %>%
+  left_join(fa_2013, by = "State.Name") %>%
   left_join(fa_2012, by = "State.Name")
 
 # Calculate budget shortfall per food-insecure person
 shortfall_per_person <- df %>%
   mutate(X2018 = ((..2018.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2018) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2018) %>%
+    round(digits = 2)))
 
 shortfall_per_person <- shortfall_per_person %>%
   mutate(X2017 = ((..2017.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2017) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2017) %>%
+    round(digits = 2)))
 
 shortfall_per_person <- shortfall_per_person %>%
   mutate(X2016 = ((..2016.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2016) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2016) %>%
+    round(digits = 2)))
 
 shortfall_per_person <- shortfall_per_person %>%
   mutate(X2015 = ((..2015.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2015) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2015) %>%
+    round(digits = 2)))
 
 shortfall_per_person <- shortfall_per_person %>%
   mutate(X2014 = ((..2014.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2014) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2014) %>%
+    round(digits = 2)))
 
 shortfall_per_person <- shortfall_per_person %>%
   mutate(X2013 = ((..2013.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2013) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2013) %>%
+    round(digits = 2)))
 
 shortfall_per_person <- shortfall_per_person %>%
   mutate(X2012 = ((..2012.Weighted.Annual.Food.Budget.Shortfall
-                   / ..of.Food.Insecure.Persons.in.2012) %>%
-                    round(digits = 2)))
+  / ..of.Food.Insecure.Persons.in.2012) %>%
+    round(digits = 2)))
 
 # Select state and shortfall per person columns
-shortfall_per_person <- shortfall_per_person %>% 
-  select(State.Name, X2018, X2017, X2016, X2015, X2014, X2013, X2012) %>% 
+shortfall_per_person <- shortfall_per_person %>%
+  select(State.Name, X2018, X2017, X2016, X2015, X2014, X2013, X2012) %>%
   # Pivot longer
   pivot_longer(!State.Name, names_to = "year", values_to = "shortfall")
 
 # Take the X out of year names
-shortfall_per_person <- shortfall_per_person %>% 
+shortfall_per_person <- shortfall_per_person %>%
   mutate(year = sub("X", "", shortfall_per_person$year))
 
 # Chart 3 data
@@ -260,7 +260,7 @@ high_threshold_18 <- fa_2018 %>% summarize(
   X2018 = ..FI...High.Threshold
 )
 
-# merge all the data frames 
+# merge all the data frames
 decade <- left_join(high_threshold_09, high_threshold_10, by = "State") %>%
   left_join(high_threshold_11, by = "State") %>%
   left_join(high_threshold_12, by = "State") %>%
@@ -271,12 +271,12 @@ decade <- left_join(high_threshold_09, high_threshold_10, by = "State") %>%
   left_join(high_threshold_17, by = "State") %>%
   left_join(high_threshold_18, by = "State")
 
-decade$State <- 
+decade$State <-
   state.name[match(decade$State, state.abb)]
 decade$State <- tolower(decade$State)
 
 df <- decade %>%
-  pivot_longer(!State, names_to = "year", values_to = "high_threshold") 
+  pivot_longer(!State, names_to = "year", values_to = "high_threshold")
 
 state_shape <- map_data("state") %>%
   rename(State = region) %>%
@@ -288,101 +288,104 @@ map_data <- map_data %>%
   mutate(year = sub("X", "", map_data$year))
 
 # Start shinyServer
-server <- function(input, output) { 
+server <- function(input, output) {
   # Chart 1 - line graphs of annual average food insecurity rate 2009 - 2018
   # Rename the name of the column to match with the drop down menu
   us_avg_insec <- rename(us_avg_insec, National = mean_food_insec)
-  
+
   # Read the Excel file from USDA's Economic Research Service (ERS)
   usda_ers <- read_excel(
     "DATA/foodsecurity_datafile.xlsx",
     sheet = "Food security, all households"
   )
-  
+
   # Filter the data to those from 2009 - 2018, food insecurity rate by race
   usda_filtered <- usda_ers %>%
     filter(Year == "2009" | Year == "2010" | Year == "2011" |
-             Year == "2012" | Year == "2013" | Year == "2014" |
-             Year == "2015" | Year == "2016" | Year == "2017" |
-             Year == "2018") %>%
+      Year == "2012" | Year == "2013" | Year == "2014" |
+      Year == "2015" | Year == "2016" | Year == "2017" |
+      Year == "2018") %>%
     filter(Subcategory == "White non-Hispanic" |
-             Subcategory == "Black non-Hispanic" |
-             Subcategory == "Hispanic") %>%
+      Subcategory == "Black non-Hispanic" |
+      Subcategory == "Hispanic") %>%
     select(year = Year, Subcategory, `Food insecure-Percent`)
-  
+
   # Divide the food insecurity rate by 100 so it matches the format
   # on the `us_avg_insec` dataframe
   usda_filtered$`Food insecure-Percent` <-
     usda_filtered$`Food insecure-Percent` / 100
-  
+
   # Convert the year from numeric to character for left join
   usda_filtered$year <- as.character(usda_filtered$year)
-  
+
   # Transpose the dataframe with tidyr
   usda_filtered <- spread(
     usda_filtered,
     key = Subcategory,
     value = `Food insecure-Percent`
   )
-  
+
   # Rename the name of the columns to match with the drop down menu
   usda_filtered <- rename(
     usda_filtered,
     Black = `Black non-Hispanic`,
     White = `White non-Hispanic`
   )
-  
+
   # Join the dataframes into one
   us_avg_insec <- left_join(us_avg_insec, usda_filtered)
-  
+
   # Render a line plot
   output$line_plot <- renderPlotly({
     plot_ly(
       data = us_avg_insec,
       x = ~year,
-      y = ~us_avg_insec[[input$line_selection]],
+      y = ~ us_avg_insec[[input$line_selection]],
       type = "scatter",
       mode = "lines"
     ) %>%
       layout(
         title = paste(
-          input$line_selection, "Average Food Insecurity Rate"),
+          input$line_selection, "Average Food Insecurity Rate"
+        ),
         xaxis = list(title = "Year"),
         yaxis = list(title = "Rate")
       )
   })
-  
+
   # Plot 2 - Shortfall per Person
   output$bar <- renderPlotly({
     # Gather top 5
     shortfall_top_n <- shortfall_per_person %>%
       filter(year == input$bar_year) %>%
       slice_max(order_by = shortfall, n = input$bar_top_n)
-    
+
     # Create plot
     plot2 <- plot_ly(
       data = shortfall_top_n,
-      x = ~reorder(State.Name, -shortfall),
+      x = ~ reorder(State.Name, -shortfall),
       y = ~shortfall,
       type = "bar",
       color = ~State.Name,
       showlegend = F
-    ) %>% 
+    ) %>%
       layout(
-        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", input$bar_year),
+        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ",
+                       input$bar_year),
         xaxis = list(title = "State"),
         yaxis = list(title = "Shortfall", tickprefix = "$")
       )
-    
+
     # Return plot
     return(plot2)
   })
-  
+
   # Plot 3 - map
   output$map <- renderPlotly({
     # Round the rate
     map_data$high_threshold <- round(
-      map_data$high_threshold, 3)
+      map_data$high_threshold, 3
+    )
     # Filter the dataframe based on the input of the slider bar
     data_year_filtered <- filter(map_data, year == input$slider1)
     # Rename the column name for better readability on tooltip
@@ -391,13 +394,13 @@ server <- function(input, output) {
     us_map <- ggplot(data_year_filtered) +
       geom_polygon(
         mapping = aes(x = long, y = lat, group = group, fill = Rate),
-        color = "white", 
-        size = .1        
+        color = "white",
+        size = .1
       ) +
       coord_map() +
       scale_fill_continuous(low = "White", high = "Red") +
-      labs(fill = "Rate") + 
-      theme_bw() + 
+      labs(fill = "Rate") +
+      theme_bw() +
       theme(
         axis.line = element_blank(),
         axis.text = element_blank(),
