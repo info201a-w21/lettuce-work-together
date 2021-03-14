@@ -38,19 +38,23 @@ server <- function(input, output) {
   
   # Plot 3 - map
   output$map <- renderPlotly({
-    # title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
-    
+    # Round the rate
+    map_data$high_threshold <- round(
+      map_data$high_threshold, 3)
+    # Filter the dataframe based on the input of the slider bar
     data_year_filtered <- filter(map_data, year == input$slider1)
-    
+    # Rename the column name for better readability on tooltip
+    Rate <- data_year_filtered$high_threshold
+    # Plot the map
     us_map <- ggplot(data_year_filtered) +
       geom_polygon(
-        mapping = aes(x = long, y = lat, group = group, fill = high_threshold),
+        mapping = aes(x = long, y = lat, group = group, fill = Rate),
         color = "white", 
         size = .1        
       ) +
       coord_map() +
       scale_fill_continuous(low = "White", high = "Red") +
-      labs(fill = "Percentage") + # Shortened to just "Percentage" b/c it's too long
+      labs(fill = "Rate") + # Shortened to just "Percentage" b/c it's too long
       # Move the longer name (commented out below) to the title
       # labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
       theme_bw() + 
@@ -64,7 +68,6 @@ server <- function(input, output) {
         panel.grid.minor = element_blank(),
         panel.border = element_blank()
       )
-    # return(title)
     return(us_map)
   })
   
