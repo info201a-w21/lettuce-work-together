@@ -4,6 +4,8 @@ library(shiny)
 library(plotly)
 library(tidyverse)
 library(readxl)
+library(maps)
+library(usmap)
 
 # Read in data
 # source("scripts/Chart 1 - Insecurity over Time.r")
@@ -123,6 +125,74 @@ us_avg_insec <- decade %>%
 # Chart 2 data
 
 # Chart 3 data
+# Create dataframes with State and Food.Insecurity.Rate only
+high_threshold_09 <- fa_2009 %>% summarize(
+  State = State.Name, X2009 = ..FI...High.Threshold
+)
+high_threshold_10 <- fa_2010 %>% summarize(
+  State,
+  X2010 = ..FI...High.Threshold
+)
+high_threshold_11 <- fa_2011 %>% summarize(
+  State = County..State, X2011 = ..FI...High.Threshold
+)
+high_threshold_12 <- fa_2012 %>% summarize(
+  State,
+  X2012 = ..FI...High.Threshold
+)
+high_threshold_13 <- fa_2013 %>% summarize(
+  State,
+  X2013 = ..FI...High.Threshold
+)
+high_threshold_14 <- fa_2014 %>% summarize(
+  State,
+  X2014 = ..FI...High.Threshold
+)
+high_threshold_15 <- fa_2015 %>% summarize(
+  State,
+  X2015 = ..FI...High.Threshold
+)
+high_threshold_16 <- fa_2016 %>% summarize(
+  State,
+  X2016 = ..FI...High.Threshold
+)
+high_threshold_17 <- fa_2017 %>% summarize(
+  State,
+  X2017 = ..FI...High.Threshold
+)
+high_threshold_18 <- fa_2018 %>% summarize(
+  State,
+  X2018 = ..FI...High.Threshold
+)
+
+# merge all the data frames 
+decade <- left_join(high_threshold_09, high_threshold_10, by = "State") %>%
+  left_join(high_threshold_11, by = "State") %>%
+  left_join(high_threshold_12, by = "State") %>%
+  left_join(high_threshold_13, by = "State") %>%
+  left_join(high_threshold_14, by = "State") %>%
+  left_join(high_threshold_15, by = "State") %>%
+  left_join(high_threshold_16, by = "State") %>%
+  left_join(high_threshold_17, by = "State") %>%
+  left_join(high_threshold_18, by = "State")
+
+decade$State <- 
+  state.name[match(decade$State, state.abb)]
+decade$State <- tolower(decade$State)
+
+df <- decade %>%
+  pivot_longer(!State, names_to = "year", values_to = "high_threshold") 
+
+state_shape <- map_data("state") %>%
+  rename(State = region) %>%
+  left_join(df, by = "State")
+
+map_data <- left_join(state_shape, df)
+
+map_data <- map_data %>%
+  mutate(year = sub("X", "", map_data$year))
+
+
 
 # Start shinyServer
 server <- function(input, output) { 
