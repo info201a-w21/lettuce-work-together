@@ -129,9 +129,9 @@ concl_panel <-tabPanel(
 ui <- navbarPage(
   "Food Insecurity in the U.S.",
   theme = shinytheme("united"),
-  # intro_panel,
-  # line_panel,
-  # bar_panel,
-  map_panel#,
-  # concl_panel
+  intro_panel,
+  line_panel,
+  bar_panel,
+  map_panel,
+  concl_panel
 )
