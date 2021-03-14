@@ -113,7 +113,12 @@ df <- decade %>%
 
 map_data <- left_join(state_shape, df)
 
-us_map <- ggplot(map_data) +
+# map_data <- map_data %>%
+#   mutate(year = sub("X", "", map_data$year))
+
+data_year_filtered <- filter(map_data, year == "2009")
+
+us_map <- ggplot(data_year_filtered) +
   geom_polygon(
     mapping = aes(x = long, y = lat, group = group, fill = map_data$high_threshold),
     color = "white", 
