@@ -179,7 +179,8 @@ concl_panel <-tabPanel(
     and potential food deserts continue to limit access to food. The 
     information revealed in this project can facilitate targeted 
     help to vulnerable states and provide insight into social factors
-    influencing food insecurity.")
+    influencing food insecurity."),
+    img(src ="field.jpg"),
 ))
 
 # Define UI for application that draws ....
