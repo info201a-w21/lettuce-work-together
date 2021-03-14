@@ -8,6 +8,7 @@ library(ggplot2)
 library(readxl)
 library(plotly)
 library(RColorBrewer)
+library(stringr)
 
 # Load data
 fa_2012 <- read_excel(
@@ -54,12 +55,12 @@ fa_2018 <- read_excel(
 
 # Join all dfs by state
 df <- fa_2018 %>% 
-  left_join(fa_2017, by = "State") %>% 
-  left_join(fa_2016, by = "State") %>% 
-  left_join(fa_2015, by = "State") %>% 
-  left_join(fa_2014, by = "State") %>% 
-  left_join(fa_2013, by = "State") %>% 
-  left_join(fa_2012, by = "State")
+  left_join(fa_2017, by = "State.Name") %>% 
+  left_join(fa_2016, by = "State.Name") %>% 
+  left_join(fa_2015, by = "State.Name") %>% 
+  left_join(fa_2014, by = "State.Name") %>% 
+  left_join(fa_2013, by = "State.Name") %>% 
+  left_join(fa_2012, by = "State.Name")
 
 # Calculate budget shortfall per food-insecure person
 shortfall_per_person <- df %>%
@@ -97,7 +98,12 @@ shortfall_per_person <- shortfall_per_person %>%
                    / ..of.Food.Insecure.Persons.in.2012) %>%
                     round(digits = 2)))
 
-# Select state and shortfall per person columns and pivot longer
+# Select state and shortfall per person columns
 shortfall_per_person <- shortfall_per_person %>% 
-  select(State, X2018, X2017, X2016, X2015, X2014, X2013, X2012) %>% 
-  pivot_longer(!State, names_to = "year", values_to = "shortfall")
+  select(State.Name, X2018, X2017, X2016, X2015, X2014, X2013, X2012) %>% 
+  # Pivot longer
+  pivot_longer(!State.Name, names_to = "year", values_to = "shortfall")
+
+# Take the X out of year names
+shortfall_per_person <- shortfall_per_person %>% 
+  mutate(year = sub("X", "", shortfall_per_person$year))
