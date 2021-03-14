@@ -43,7 +43,7 @@ intro_panel <- tabPanel(
   )) 
 # Chart 1 page
 line_panel <- tabPanel(
-  "Food Insecurity Line Graph",
+  "Annual Rates",
   titlePanel("Annual Food Insecurity Rates"),
   # Drop down menu
   sidebarPanel(
@@ -124,7 +124,7 @@ bar_panel <- tabPanel(
 
 # Chart 3 page
 map_panel <- tabPanel(
-  "Food Insecurity Map",
+  "High Poverty Threshold",
   titlePanel("Food Insecure Population Above High Poverty Threshold"),
   sidebarPanel(
     sliderInput("slider1", label = "Select a year:", min = 2009,  
