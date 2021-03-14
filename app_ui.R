@@ -44,12 +44,12 @@ intro_panel <- tabPanel(
 # Chart 1 page
 line_panel <- tabPanel(
   "Food Insecurity Line Graph",
-  titlePanel("Annual Food Insecurity Rates, 2009 - 2018"),
+  titlePanel("Annual Food Insecurity Rates"),
   # Drop down menu
   sidebarPanel(
     selectInput(
       inputId = "line_selection",
-      label = "Choose the line",
+      label = "Select a race:",
       choices = c(
         "National",
         "Black",
@@ -65,6 +65,9 @@ line_panel <- tabPanel(
   )
 )
 # Chart 2 page
+# Title
+bar_title <- titlePanel("Budget Shortfall per Food Insecure Person")
+
 # # Widget 1: year dropdown menu
 # bar_year <- selectInput(
 #   inputId = "bar_year",
@@ -93,7 +96,7 @@ bar_year <- sliderInput(
 # Widget 2: top N numeric input
 bar_top_n <- numericInput(
   inputId = "bar_top_n",
-  label = "Choose how many states to display",
+  label = "Choose how many states to display:",
   value = 5,
   min = 1,
   max = 51,
@@ -107,7 +110,6 @@ bar_sidebar <- sidebarPanel(
 )
 
 # Main content
-# Visualization
 bar_main_content <- mainPanel(
   plotlyOutput("bar")
 )
@@ -115,6 +117,7 @@ bar_main_content <- mainPanel(
 # Entire page
 bar_panel <- tabPanel(
   "Budget Shortfall",
+  bar_title,
   bar_sidebar,
   bar_main_content
 )
@@ -122,8 +125,9 @@ bar_panel <- tabPanel(
 # Chart 3 page
 map_panel <- tabPanel(
   "Food Insecurity Map",
+  titlePanel("Food Insecure Population Above High Poverty Threshold"),
   sidebarPanel(
-    sliderInput("slider1", label = h3("Year"), min = 2009,  
+    sliderInput("slider1", label = "Select a year:", min = 2009,  
               max = 2018, value = 2009, sep = "")
     ),
   mainPanel(
@@ -140,9 +144,9 @@ concl_panel <-tabPanel(
 ui <- navbarPage(
   "Food Insecurity in the U.S.",
   theme = shinytheme("united"),
-  intro_panel,
+  # intro_panel,
   line_panel,
   bar_panel,
-  map_panel,
-  concl_panel
+  map_panel#,
+  # concl_panel
 )

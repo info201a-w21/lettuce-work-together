@@ -38,7 +38,8 @@ server <- function(input, output) {
   
   # Plot 3 - map
   output$map <- renderPlotly({
-    title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
+    # title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
+    
     data_year_filtered <- filter(map_data, year == input$slider1)
     
     us_map <- ggplot(data_year_filtered) +
@@ -63,7 +64,7 @@ server <- function(input, output) {
         panel.grid.minor = element_blank(),
         panel.border = element_blank()
       )
-    
+    # return(title)
     return(us_map)
   })
   
