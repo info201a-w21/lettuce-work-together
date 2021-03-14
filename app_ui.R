@@ -6,32 +6,35 @@ library(shinythemes)
 intro_panel <- tabPanel(
   "Introduction",
   titlePanel("Introduction"), 
-  p(style = "font-size:18px;", "By: Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang"),
+  p(style = "font-size:18px;", strong("Team Lettuce Work Together"), " Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang"),
+  # p(style = "font-size:18px;", "By: Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang"),
   p(style = "font-size:16px;","Food insecurity,",
   em("or the lack of regular access to nutritious foods,"),
   "is not an issue solely afflicting developing countries. As a developed
   country with a robust economy and advanced infrastructure, the United States
-  continues to struggle with food insecurity. By examining data from
-  2009 - 2018, our team created visualizations to study some contributing
-  factors to the persistence of food insecurity in the U.S.
-  We highlight potential determinants such as social inequalities, 
+  continues to struggle with food insecurity. In examining data from
+  2009 - 2018, our team has created visualizations to study some contributing
+  factors to the persistence of food insecurity in the U.S..
+  These visualizations highlight potential determinants such as social inequalities, 
   state-level financial 
   needs, and food deserts.",
-  p(style = "font-size:16px;","Our team analyzed data from Feeding America, a nonprofit organization with
-  a network of over 200 food banks, to understand how food insecurity in the US 
-  has changed over time. Feeding America drew local food insecurity and 
+  p(style = "font-size:16px;","Our team analyzed data from ",
+    HTML(paste0(a("Feeding America", href = "https://secure.feedingamerica.org/site/Donation2?29411.donation=form1&df_id=29411&mfc_pref=T&s_src=Y21XP1B1Y&s_subsrc=c&s_keyword=feeding%20america&gclid=CjwKCAiAhbeCBhBcEiwAkv2cYyCjU5N8k3ALk3ExtioTjaZqxr90jkOtfUNTAclG2ZJi6p1Mo-HB9xoCNcYQAvD_BwE&gclsrc=aw.ds"), ",")),
+  " a nonprofit organization with
+  a network of over 200 food banks, to understand how food insecurity in the U.S. 
+  has changed over time. This organization drew local food insecurity and 
   expenditure estimates from the Current Population Survey (CPS), 
-  American Community Survey (ACS), and Bureau of Labor Statistics (BLS). This 
+  American Community Survey (ACS), and Bureau of Labor Statistics (BLS). Using this data 
   enabled us to explore food insecurity at the county, congressional district, 
-  and state levels. With this data, our team created visualizations that allow 
-  users to explore questions about the scale of American food insecurity and the
-  budget shortfalls of food assistance programs."),  
-  p(style = "font-size:16px;","In addition, we utilized data calculated by USDA's Economic Research
-  Service (ERS) to gain insights concerning the relationship between access to 
-  healthy food and demographics. ERS sourced its statistics from Current
-  Population Survey Food Security Supplement (CPS-FSS) from the U.S. Census
-  Bureau.The data from ERS helped us understand any demographic factors 
-  influencing inequal access to nutritious foods in the United States."),
+  and state levels. In addition, this data let us explore questions about the scale of American food insecurity and the
+  budget shortfalls of existing food assistance programs."),  
+  p(style = "font-size:16px;","In addition, we utilized data calculated by USDA's ",
+    a("Economic Research Service (ERS)", href = "https://www.ers.usda.gov/"),
+    "concerning the relationship between access to 
+    healthy food and race. ERS sourced its statistics from Current
+    Population Survey Food Security Supplement (CPS-FSS) from the U.S. Census
+    Bureau. This data helped us understand any demographic factors 
+    influencing inequal access to nutritious foods in the United States."),
   p(style = "font-size:16px;", strong("Ultimately, our project explores questions regarding the trends of 
   food insecurity over time, food gaps between different races, and 
   the success of food assistance programs, as well as the existence of potential 
