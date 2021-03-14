@@ -10,8 +10,8 @@ source("shiny-scripts/Chart 3 - Food insecurity map.R")
 
 # Start shinyServer
 server <- function(input, output) { 
+  # Plot 2 - Shortfall per Person
   output$bar <- renderPlotly({
-    # Plot 2 - Shortfall per Person
     # Gather top 5
     shortfall_top_n <- shortfall_per_person %>%
       filter(year == input$bar_year) %>%
@@ -38,8 +38,34 @@ server <- function(input, output) {
   
   # Plot 3 - map
   output$map <- renderPlotly({
-    title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
-    us_map
+    # title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
+    
+    data_year_filtered <- filter(map_data, year == input$slider1)
+    
+    us_map <- ggplot(data_year_filtered) +
+      geom_polygon(
+        mapping = aes(x = long, y = lat, group = group, fill = high_threshold),
+        color = "white", 
+        size = .1        
+      ) +
+      coord_map() +
+      scale_fill_continuous(low = "White", high = "Red") +
+      labs(fill = "Percentage") + # Shortened to just "Percentage" b/c it's too long
+      # Move the longer name (commented out below) to the title
+      # labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
+      theme_bw() + 
+      theme(
+        axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank()
+      )
+    # return(title)
+    return(us_map)
   })
   
   # Sang-Won's part
