@@ -1,6 +1,5 @@
 library(readxl)
 library(shiny)
-library(leaflet)
 library(usmap)
 library(plotly)
 library(maps)
@@ -110,11 +109,13 @@ state_shape <- map_data("state") %>%
   left_join(df, by = "State")
 
 df <- decade %>%
-  pivot_longer(!State, names_to = "year", values_to = "high_threshold")
+  pivot_longer(!State, names_to = "year", values_to = "high_threshold") 
 
-us_map <- ggplot(state_shape) +
+map_data <- left_join(state_shape, df)
+
+us_map <- ggplot(map_data) +
   geom_polygon(
-    mapping = aes(x = long, y = lat, group = group, fill = high_threshold),
+    mapping = aes(x = long, y = lat, group = group, fill = map_data$high_threshold),
     color = "white", 
     size = .1        
   ) +
