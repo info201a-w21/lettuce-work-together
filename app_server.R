@@ -289,6 +289,73 @@ map_data <- map_data %>%
 
 # Start shinyServer
 server <- function(input, output) {
+<<<<<<< HEAD
+=======
+  # Chart 1 - line graphs of annual average food insecurity rate 2009 - 2018
+  # Rename the name of the column to match with the drop down menu
+  us_avg_insec <- rename(us_avg_insec, National = mean_food_insec)
+
+  # Read the Excel file from USDA's Economic Research Service (ERS)
+  usda_ers <- read_excel(
+    "DATA/foodsecurity_datafile.xlsx",
+    sheet = "Food security, all households"
+  )
+
+  # Filter the data to those from 2009 - 2018, food insecurity rate by race
+  usda_filtered <- usda_ers %>%
+    filter(Year == "2009" | Year == "2010" | Year == "2011" |
+      Year == "2012" | Year == "2013" | Year == "2014" |
+      Year == "2015" | Year == "2016" | Year == "2017" |
+      Year == "2018") %>%
+    filter(Subcategory == "White non-Hispanic" |
+      Subcategory == "Black non-Hispanic" |
+      Subcategory == "Hispanic") %>%
+    select(year = Year, Subcategory, `Food insecure-Percent`)
+
+  # Divide the food insecurity rate by 100 so it matches the format
+  # on the `us_avg_insec` dataframe
+  usda_filtered$`Food insecure-Percent` <-
+    usda_filtered$`Food insecure-Percent` / 100
+
+  # Convert the year from numeric to character for left join
+  usda_filtered$year <- as.character(usda_filtered$year)
+
+  # Transpose the dataframe with tidyr
+  usda_filtered <- spread(
+    usda_filtered,
+    key = Subcategory,
+    value = `Food insecure-Percent`
+  )
+
+  # Rename the name of the columns to match with the drop down menu
+  usda_filtered <- rename(
+    usda_filtered,
+    Black = `Black non-Hispanic`,
+    White = `White non-Hispanic`
+  )
+
+  # Join the dataframes into one
+  us_avg_insec <- left_join(us_avg_insec, usda_filtered)
+
+  # Render a line plot
+  output$line_plot <- renderPlotly({
+    plot_ly(
+      data = us_avg_insec,
+      x = ~year,
+      y = ~ us_avg_insec[[input$line_selection]],
+      type = "scatter",
+      mode = "lines"
+    ) %>%
+      layout(
+        title = paste(
+          input$line_selection, "Average Food Insecurity Rate"
+        ),
+        xaxis = list(title = "Year"),
+        yaxis = list(title = "Rate")
+      )
+  })
+
+>>>>>>> 79751f88b347b26080b270c06b23e8008e9dedb1
   # Plot 2 - Shortfall per Person
   output$bar <- renderPlotly({
     # Gather top 5
@@ -306,7 +373,11 @@ server <- function(input, output) {
       showlegend = F
     ) %>%
       layout(
+<<<<<<< HEAD
         title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", 
+=======
+        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ",
+>>>>>>> 79751f88b347b26080b270c06b23e8008e9dedb1
                        input$bar_year),
         xaxis = list(title = "State"),
         yaxis = list(title = "Shortfall", tickprefix = "$")
@@ -335,8 +406,12 @@ server <- function(input, output) {
       ) +
       coord_map() +
       scale_fill_continuous(low = "White", high = "Red") +
+<<<<<<< HEAD
       labs(fill = "Rate") + # Shortened to just "Percentage" b/c it's too long
       # Move the longer name (commented out below) to the title
+=======
+      labs(fill = "Rate") +
+>>>>>>> 79751f88b347b26080b270c06b23e8008e9dedb1
       theme_bw() +
       theme(
         axis.line = element_blank(),
@@ -350,6 +425,7 @@ server <- function(input, output) {
       )
     return(us_map)
   })
+<<<<<<< HEAD
 
   # Sang-Won's part
   # Line graphs of annual average food insecurity rate 2009 - 2018
@@ -415,4 +491,6 @@ server <- function(input, output) {
         yaxis = list(title = "Rate")
       )
   })
+=======
+>>>>>>> 79751f88b347b26080b270c06b23e8008e9dedb1
 }
