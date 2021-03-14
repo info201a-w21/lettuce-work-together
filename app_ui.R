@@ -43,8 +43,8 @@ intro_panel <- tabPanel(
   )) 
 # Chart 1 page
 line_panel <- tabPanel(
-  "Annual Rates",
-  titlePanel("Annual Food Insecurity Rates"),
+  "Average Rates",
+  titlePanel("Average Food Insecurity Rates over Time"),
   # Drop down menu
   sidebarPanel(
     selectInput(
@@ -125,7 +125,7 @@ bar_panel <- tabPanel(
 # Chart 3 page
 map_panel <- tabPanel(
   "High Poverty Threshold",
-  titlePanel("Food Insecure Population Above High Poverty Threshold"),
+  titlePanel("Food Insecure Population above High Poverty Threshold"),
   sidebarPanel(
     sliderInput("slider1", label = "Select a year:", min = 2009,  
               max = 2018, value = 2009, sep = "")
