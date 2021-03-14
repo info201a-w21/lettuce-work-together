@@ -113,9 +113,11 @@ df <- decade %>%
 
 map_data <- left_join(state_shape, df)
 
+Value <- map_data$high_threshold
+
 us_map <- ggplot(map_data) +
   geom_polygon(
-    mapping = aes(x = long, y = lat, group = group, fill = map_data$high_threshold),
+    mapping = aes(x = long, y = lat, group = group, fill = Value),
     color = "white", 
     size = .1        
   ) +
