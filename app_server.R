@@ -4,19 +4,11 @@ library(shiny)
 library(plotly)
 library(tidyverse)
 library(readxl)
-<<<<<<< HEAD
 library(maps)
 library(usmap)
-=======
 library(ggplot2)
 library(RColorBrewer)
 library(stringr)
->>>>>>> 767dcd7c664b9b90c800fd1b23b0671728d276e8
-
-# Read in data
-# source("scripts/Chart 1 - Insecurity over Time.r")
-# source("shiny-scripts/Chart 2 - Shortfall per Insecure.R")
-# source("shiny-scripts/Chart 3 - Food insecurity map.R")
 
 # Chart 1 data
 # Read excel files
@@ -294,8 +286,6 @@ map_data <- left_join(state_shape, df)
 
 map_data <- map_data %>%
   mutate(year = sub("X", "", map_data$year))
-
-
 
 # Start shinyServer
 server <- function(input, output) { 
