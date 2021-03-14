@@ -101,7 +101,7 @@ decade <- left_join(high_threshold_09, high_threshold_10, by = "State") %>%
   left_join(high_threshold_18, by = "State")
 
 decade$State <- 
-state.name[match(decade$State, state.abb)]
+  state.name[match(decade$State, state.abb)]
 decade$State <- tolower(decade$State)
 
 df <- decade %>%
@@ -113,30 +113,6 @@ state_shape <- map_data("state") %>%
 
 map_data <- left_join(state_shape, df)
 
-<<<<<<< HEAD
-Value <- map_data$high_threshold
-
-us_map <- ggplot(map_data) +
-  geom_polygon(
-    mapping = aes(x = long, y = lat, group = group, fill = Value),
-    color = "white", 
-    size = .1        
-  ) +
-  coord_map() +
-  scale_fill_continuous(low = "White", high = "Red") +
-  labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
-  theme_bw() + 
-  theme(
-    axis.line = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    axis.title = element_blank(),
-    plot.background = element_blank(),
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    panel.border = element_blank()
-  )
-=======
 map_data <- map_data %>%
   mutate(year = sub("X", "", map_data$year))
 
@@ -162,4 +138,3 @@ map_data <- map_data %>%
 #     panel.grid.minor = element_blank(),
 #     panel.border = element_blank()
 #   )
->>>>>>> cafec69471c3a1ca3dbfd404d14f0a202e3a4ec9
