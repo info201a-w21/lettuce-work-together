@@ -289,68 +289,7 @@ map_data <- map_data %>%
 
 # Start shinyServer
 server <- function(input, output) { 
-  # Plot 2 - Shortfall per Person
-  output$bar <- renderPlotly({
-    # Gather top 5
-    shortfall_top_n <- shortfall_per_person %>%
-      filter(year == input$bar_year) %>%
-      slice_max(order_by = shortfall, n = input$bar_top_n)
-    
-    # Create plot
-    plot2 <- plot_ly(
-      data = shortfall_top_n,
-      x = ~reorder(State.Name, -shortfall),
-      y = ~shortfall,
-      type = "bar",
-      color = ~State.Name,
-      showlegend = F
-    ) %>% 
-      layout(
-        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", input$bar_year),
-        xaxis = list(title = "State"),
-        yaxis = list(title = "Shortfall", tickprefix = "$")
-      )
-    
-    # Return plot
-    return(plot2)
-  })
-  
-  # Plot 3 - map
-  output$map <- renderPlotly({
-    # Round the rate
-    map_data$high_threshold <- round(
-      map_data$high_threshold, 3)
-    # Filter the dataframe based on the input of the slider bar
-    data_year_filtered <- filter(map_data, year == input$slider1)
-    # Rename the column name for better readability on tooltip
-    Rate <- data_year_filtered$high_threshold
-    # Plot the map
-    us_map <- ggplot(data_year_filtered) +
-      geom_polygon(
-        mapping = aes(x = long, y = lat, group = group, fill = Rate),
-        color = "white", 
-        size = .1        
-      ) +
-      coord_map() +
-      scale_fill_continuous(low = "White", high = "Red") +
-      labs(fill = "Rate") + # Shortened to just "Percentage" b/c it's too long
-      # Move the longer name (commented out below) to the title
-      theme_bw() + 
-      theme(
-        axis.line = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        axis.title = element_blank(),
-        plot.background = element_blank(),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.border = element_blank()
-      )
-    return(us_map)
-  })
-  
-  # Sang-Won's part
-  # Line graphs of annual average food insecurity rate 2009 - 2018
+  # Chart 1 - line graphs of annual average food insecurity rate 2009 - 2018
   # Rename the name of the column to match with the drop down menu
   us_avg_insec <- rename(us_avg_insec, National = mean_food_insec)
   
@@ -411,5 +350,64 @@ server <- function(input, output) {
         xaxis = list(title = "Year"),
         yaxis = list(title = "Rate")
       )
+  })
+  
+  # Plot 2 - Shortfall per Person
+  output$bar <- renderPlotly({
+    # Gather top 5
+    shortfall_top_n <- shortfall_per_person %>%
+      filter(year == input$bar_year) %>%
+      slice_max(order_by = shortfall, n = input$bar_top_n)
+    
+    # Create plot
+    plot2 <- plot_ly(
+      data = shortfall_top_n,
+      x = ~reorder(State.Name, -shortfall),
+      y = ~shortfall,
+      type = "bar",
+      color = ~State.Name,
+      showlegend = F
+    ) %>% 
+      layout(
+        title = paste0("Top ", input$bar_top_n, " State Shortfalls in ", input$bar_year),
+        xaxis = list(title = "State"),
+        yaxis = list(title = "Shortfall", tickprefix = "$")
+      )
+    
+    # Return plot
+    return(plot2)
+  })
+  
+  # Plot 3 - map
+  output$map <- renderPlotly({
+    # Round the rate
+    map_data$high_threshold <- round(
+      map_data$high_threshold, 3)
+    # Filter the dataframe based on the input of the slider bar
+    data_year_filtered <- filter(map_data, year == input$slider1)
+    # Rename the column name for better readability on tooltip
+    Rate <- data_year_filtered$high_threshold
+    # Plot the map
+    us_map <- ggplot(data_year_filtered) +
+      geom_polygon(
+        mapping = aes(x = long, y = lat, group = group, fill = Rate),
+        color = "white", 
+        size = .1        
+      ) +
+      coord_map() +
+      scale_fill_continuous(low = "White", high = "Red") +
+      labs(fill = "Rate") + 
+      theme_bw() + 
+      theme(
+        axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank()
+      )
+    return(us_map)
   })
 }
