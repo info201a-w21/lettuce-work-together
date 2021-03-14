@@ -94,3 +94,7 @@ To incentivize nutritious eating, Washington State implemented a fruit and veget
 - In what year was `average participation` highest?
 - What about `total benefits`?
 - What is the ratio of `total benefits` to `total costs` in the past 10 years?
+
+_Image sources:_
+- [Introduction Image](https://travel.usnews.com/dims4/USNEWS/7dd8dad/2147483647/resize/255x255%5E%3E/crop/255x255/quality/85/?url=https://travel.usnews.com/images/pike_place_2_getty_bSSEVFV.jpg)
+- [Conclusion Image](https://media.istockphoto.com/photos/sunset-illuminates-a-green-crop-field-picture-id171107519?k=6&m=171107519&s=612x612&w=0&h=CriS5XFC-avee5dV1Sa20oNWXfX92WJjDSRo5k3Z1eE=)
