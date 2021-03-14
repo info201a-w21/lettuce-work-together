@@ -43,19 +43,23 @@ line_panel <- tabPanel(
   "Food Insecurity Line Graph",
   titlePanel("Annual Food Insecurity Rates, 2009 - 2018"),
   # Drop down menu
-  selectInput(
-    inputId = "line_selection",
-    label = "Choose the line",
-    choices = c(
-      "National",
-      "Black",
-      "Hispanic",
-      "White"
-    ),
-    selected = "National"
+  sidebarPanel(
+    selectInput(
+      inputId = "line_selection",
+      label = "Choose the line",
+      choices = c(
+        "National",
+        "Black",
+        "Hispanic",
+        "White"
+      ),
+      selected = "National"
+    )
   ),
   # Output the line plot
-  plotlyOutput("line_plot")
+  mainPanel(
+    plotlyOutput("line_plot")
+  )
 )
 # Chart 2 page
 # # Widget 1: year dropdown menu
