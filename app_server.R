@@ -39,10 +39,11 @@ server <- function(input, output) {
   # Plot 3 - map
   output$map <- renderPlotly({
     title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
-    data_year_filtered <- filter(map_data, year == "2018")
+    data_year_filtered <- filter(map_data, year == input$slider1)
+    
     us_map <- ggplot(data_year_filtered) +
       geom_polygon(
-        mapping = aes(x = long, y = lat, group = group, fill = map_data$high_threshold),
+        mapping = aes(x = long, y = lat, group = group, fill = high_threshold),
         color = "white", 
         size = .1        
       ) +
@@ -59,7 +60,8 @@ server <- function(input, output) {
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_blank()
-      ) 
+      )
+    
     return(us_map)
   })
   

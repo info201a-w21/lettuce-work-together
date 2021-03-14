@@ -104,37 +104,37 @@ decade$State <-
 state.name[match(decade$State, state.abb)]
 decade$State <- tolower(decade$State)
 
+df <- decade %>%
+  pivot_longer(!State, names_to = "year", values_to = "high_threshold") 
+
 state_shape <- map_data("state") %>%
   rename(State = region) %>%
   left_join(df, by = "State")
 
-df <- decade %>%
-  pivot_longer(!State, names_to = "year", values_to = "high_threshold") 
-
 map_data <- left_join(state_shape, df)
 
-# map_data <- map_data %>%
-#   mutate(year = sub("X", "", map_data$year))
+map_data <- map_data %>%
+  mutate(year = sub("X", "", map_data$year))
 
-data_year_filtered <- filter(map_data, year == "2009")
-
-us_map <- ggplot(data_year_filtered) +
-  geom_polygon(
-    mapping = aes(x = long, y = lat, group = group, fill = map_data$high_threshold),
-    color = "white", 
-    size = .1        
-  ) +
-  coord_map() +
-  scale_fill_continuous(low = "White", high = "Red") +
-  labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
-  theme_bw() + 
-  theme(
-    axis.line = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    axis.title = element_blank(),
-    plot.background = element_blank(),
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    panel.border = element_blank()
-  )
+# data_year_filtered <- filter(map_data, year == "2009")
+# 
+# us_map <- ggplot(data_year_filtered) +
+#   geom_polygon(
+#     mapping = aes(x = long, y = lat, group = group, fill = high_threshold),
+#     color = "white", 
+#     size = .1        
+#   ) +
+#   coord_map() +
+#   scale_fill_continuous(low = "White", high = "Red") +
+#   labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
+#   theme_bw() + 
+#   theme(
+#     axis.line = element_blank(),
+#     axis.text = element_blank(),
+#     axis.ticks = element_blank(),
+#     axis.title = element_blank(),
+#     plot.background = element_blank(),
+#     panel.grid.major = element_blank(),
+#     panel.grid.minor = element_blank(),
+#     panel.border = element_blank()
+#   )
