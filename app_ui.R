@@ -115,9 +115,13 @@ bar_panel <- tabPanel(
 # Chart 3 page
 map_panel <- tabPanel(
   "Food Insecurity Map",
-  sliderInput("slider1", label = h3("Year"), min = 2009,  
-              max = 2018, value = 2009, sep = ""),
-plotlyOutput("map"))
+  sidebarPanel(
+    sliderInput("slider1", label = h3("Year"), min = 2009,  
+              max = 2018, value = 2009, sep = "")
+    ),
+  mainPanel(
+    plotlyOutput("map"))
+  )
 
 # Conclusion page 
 concl_panel <-tabPanel(

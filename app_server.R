@@ -49,7 +49,9 @@ server <- function(input, output) {
       ) +
       coord_map() +
       scale_fill_continuous(low = "White", high = "Red") +
-      labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
+      labs(fill = "Percentage") + # Shortened to just "Percentage" b/c it's too long
+      # Move the longer name (commented out below) to the title
+      # labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
       theme_bw() + 
       theme(
         axis.line = element_blank(),
