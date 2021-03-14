@@ -39,7 +39,28 @@ server <- function(input, output) {
   # Plot 3 - map
   output$map <- renderPlotly({
     title <- paste0("Percentage of Food Insecure Population Above High Poverty Threshold")
-    us_map
+    data_year_filtered <- filter(map_data, year == "2018")
+    us_map <- ggplot(data_year_filtered) +
+      geom_polygon(
+        mapping = aes(x = long, y = lat, group = group, fill = map_data$high_threshold),
+        color = "white", 
+        size = .1        
+      ) +
+      coord_map() +
+      scale_fill_continuous(low = "White", high = "Red") +
+      labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
+      theme_bw() + 
+      theme(
+        axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank()
+      ) 
+    return(us_map)
   })
   
   # Sang-Won's part
