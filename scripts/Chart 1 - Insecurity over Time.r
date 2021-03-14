@@ -115,13 +115,13 @@ us_avg_insec <- decade %>%
   group_by(year) %>%
   dplyr::summarize(mean_food_insec = mean(food_insec))
 
-# Plot the line graph
-g <- ggplot(data = us_avg_insec) +
-  geom_line(
-    mapping = aes(x = year, y = mean_food_insec, group = 1)
-  ) +
-  labs(
-    title = "Average Food Insecurity Rate throughout the U.S., 2009 - 2018",
-    x = "Year",
-    y = "Food Insecurity Rate"
-  )
+# # Plot the line graph
+# g <- ggplot(data = us_avg_insec) +
+#   geom_line(
+#     mapping = aes(x = year, y = mean_food_insec, group = 1)
+#   ) +
+#   labs(
+#     title = "Average Food Insecurity Rate throughout the U.S., 2009 - 2018",
+#     x = "Year",
+#     y = "Food Insecurity Rate"
+#   )
