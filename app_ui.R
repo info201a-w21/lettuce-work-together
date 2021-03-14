@@ -7,7 +7,6 @@ intro_panel <- tabPanel(
   "Introduction",
   titlePanel("Introduction"), 
   p(style = "font-size:18px;", strong("Team Lettuce Work Together"), " Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang"),
-  # p(style = "font-size:18px;", "By: Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang"),
   p(style = "font-size:16px;","Food insecurity,",
   em("or the lack of regular access to nutritious foods,"),
   "is not an issue solely afflicting developing countries. As a developed
@@ -68,20 +67,6 @@ line_panel <- tabPanel(
 # Title
 bar_title <- titlePanel("Budget Shortfall per Food Insecure Person")
 
-# # Widget 1: year dropdown menu
-# bar_year <- selectInput(
-#   inputId = "bar_year",
-#   label = "Choose year",
-#   choices = c(
-#     "2018",
-#     "2017",
-#     "2016",
-#     "2015",
-#     "2014",
-#     "2013",
-#     "2012"
-#   )
-# )
 # Widget 1: year slider
 bar_year <- sliderInput(
   inputId = "bar_year",
@@ -89,7 +74,6 @@ bar_year <- sliderInput(
   min = 2012,
   max = 2018,
   value = 2018,
-  # ticks = F,
   sep = ""
 )
 
@@ -183,7 +167,7 @@ concl_panel <-tabPanel(
     img(src ="field.jpg"),
 ))
 
-# Define UI for application that draws ....
+# Define UI
 ui <- navbarPage(
   "Food Insecurity in the U.S.",
   theme = shinytheme("united"),

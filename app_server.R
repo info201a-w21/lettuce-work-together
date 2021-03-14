@@ -56,7 +56,6 @@ server <- function(input, output) {
       scale_fill_continuous(low = "White", high = "Red") +
       labs(fill = "Rate") + # Shortened to just "Percentage" b/c it's too long
       # Move the longer name (commented out below) to the title
-      # labs(fill = "Percentage of Food Insecure Population Above High Poverty Threshold") +
       theme_bw() + 
       theme(
         axis.line = element_blank(),
@@ -130,11 +129,8 @@ server <- function(input, output) {
       layout(
         title = paste(
           input$line_selection, "Average Food Insecurity Rate"),
-        # title = "Food Insecurity Rate 2009 - 2018",
         xaxis = list(title = "Year"),
         yaxis = list(title = "Rate")
-        # yaxis = list(title = paste(
-        #   input$line_selection, "Average Food Insecurity Rate"))
       )
   })
 }
