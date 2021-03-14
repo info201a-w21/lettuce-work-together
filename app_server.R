@@ -125,10 +125,13 @@ server <- function(input, output) {
       mode = "lines"
     ) %>%
       layout(
-        title = "Food Insecurity Rate 2009 - 2018",
+        title = paste(
+          input$line_selection, "Average Food Insecurity Rate"),
+        # title = "Food Insecurity Rate 2009 - 2018",
         xaxis = list(title = "Year"),
-        yaxis = list(title = paste(
-          input$line_selection, "Average Food Insecurity Rate"))
+        yaxis = list(title = "Rate")
+        # yaxis = list(title = paste(
+        #   input$line_selection, "Average Food Insecurity Rate"))
       )
   })
 }
