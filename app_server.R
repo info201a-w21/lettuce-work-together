@@ -10,8 +10,8 @@ source("shiny-scripts/Chart 3 - Food insecurity map.R")
 
 # Start shinyServer
 server <- function(input, output) { 
+  # Plot 2 - Shortfall per Person
   output$bar <- renderPlotly({
-    # Plot 2 - Shortfall per Person
     # Gather top 5
     shortfall_top_n <- shortfall_per_person %>%
       filter(year == input$bar_year) %>%
