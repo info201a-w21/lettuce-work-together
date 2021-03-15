@@ -9,6 +9,7 @@ library(usmap)
 library(ggplot2)
 library(RColorBrewer)
 library(stringr)
+library(mapproj)
 
 # Chart 1 data
 # Read excel files
