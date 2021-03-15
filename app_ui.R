@@ -8,8 +8,8 @@ intro_panel <- tabPanel(
   titlePanel("Introduction"), 
   p(style = "font-size:18px;", strong("Team Lettuce Work Together"), " Gabriella Alonso, Brielle Bush, Sang-Won Yu, Maynard Maynard-Zhang"),
   p(style = "font-size:16px;","Food insecurity,",
-  em("or the lack of regular access to nutritious foods,"),
-  "is not an issue solely afflicting developing countries. As a developed
+    em("or the lack of regular access to nutritious foods,"),
+    "is not an issue solely afflicting developing countries. As a developed
   country with a robust economy and advanced infrastructure, the United States
   continues to struggle with food insecurity. In examining data from
   2009 - 2018, our team has created visualizations to study some contributing
@@ -17,9 +17,9 @@ intro_panel <- tabPanel(
   These visualizations highlight potential determinants such as social inequalities, 
   state-level financial 
   needs, and food deserts.",
-  p(style = "font-size:16px;","Our team analyzed data from ",
-    HTML(paste0(a("Feeding America", href = "https://secure.feedingamerica.org/site/Donation2?29411.donation=form1&df_id=29411&mfc_pref=T&s_src=Y21XP1B1Y&s_subsrc=c&s_keyword=feeding%20america&gclid=CjwKCAiAhbeCBhBcEiwAkv2cYyCjU5N8k3ALk3ExtioTjaZqxr90jkOtfUNTAclG2ZJi6p1Mo-HB9xoCNcYQAvD_BwE&gclsrc=aw.ds"), ",")),
-  " a nonprofit organization with
+    p(style = "font-size:16px;","Our team analyzed data from ",
+      HTML(paste0(a("Feeding America", href = "https://secure.feedingamerica.org/site/Donation2?29411.donation=form1&df_id=29411&mfc_pref=T&s_src=Y21XP1B1Y&s_subsrc=c&s_keyword=feeding%20america&gclid=CjwKCAiAhbeCBhBcEiwAkv2cYyCjU5N8k3ALk3ExtioTjaZqxr90jkOtfUNTAclG2ZJi6p1Mo-HB9xoCNcYQAvD_BwE&gclsrc=aw.ds"), ",")),
+      " a nonprofit organization with
   a network of over 200 food banks, to understand how food insecurity in the U.S. 
   has changed over time. This organization drew local food insecurity and 
   expenditure estimates from the Current Population Survey (CPS), 
@@ -27,18 +27,18 @@ intro_panel <- tabPanel(
   enabled us to explore food insecurity at the county, congressional district, 
   and state levels. In addition, this data let us explore questions about the scale of American food insecurity and the
   budget shortfalls of existing food assistance programs."),  
-  p(style = "font-size:16px;","In addition, we utilized data calculated by USDA's ",
-    a("Economic Research Service (ERS)", href = "https://www.ers.usda.gov/"),
-    "concerning the relationship between access to 
+    p(style = "font-size:16px;","In addition, we utilized data calculated by USDA's ",
+      a("Economic Research Service (ERS)", href = "https://www.ers.usda.gov/"),
+      "concerning the relationship between access to 
     healthy food and race. ERS sourced its statistics from Current
     Population Survey Food Security Supplement (CPS-FSS) from the U.S. Census
     Bureau. This data helped us understand any demographic factors 
     influencing inequal access to nutritious foods in the United States."),
-  p(style = "font-size:16px;", strong("Ultimately, our project explores questions regarding the trends of 
+    p(style = "font-size:16px;", strong("Ultimately, our project explores questions regarding the trends of 
   food insecurity over time, food gaps between different races, and 
   the success of food assistance programs, as well as the existence of potential 
   food deserts.")),
-  img(src ="market.jpg"),
+    img(src ="market.jpg"),
   )) 
 # Chart 1 page
 line_panel <- tabPanel(
@@ -112,11 +112,11 @@ map_panel <- tabPanel(
   titlePanel("Food Insecure Population above High Poverty Threshold"),
   sidebarPanel(
     sliderInput("slider1", label = "Select a year:", min = 2009,  
-              max = 2018, value = 2009, sep = "")
-    ),
+                max = 2018, value = 2009, sep = "")
+  ),
   mainPanel(
     plotlyOutput("map"))
-  )
+)
 
 # Conclusion page 
 concl_panel <-tabPanel(
@@ -131,7 +131,7 @@ concl_panel <-tabPanel(
     rates that are above the U.S. national average, Black and Hispanic 
     Americans are around twice as likely to experience food insecurity 
     than White Americans.",
-  p(style = "font-size:16px;","To complement our study of the demographics 
+    p(style = "font-size:16px;","To complement our study of the demographics 
     of American food insecurity, our team also explored financial factors. 
     Since our earlier research revealed that budget shortfalls in food
     assistance programs had a higher impact on food insecurity than meal 
@@ -146,18 +146,18 @@ concl_panel <-tabPanel(
     Using their average meal cost of $4.08,", strong("around 169 meals per 
     person were not consumed in the District of Columbia due to budget
     shortfalls.")),
-  p(style = "font-size:16px;","To further explore the impact of financial factors  
+    p(style = "font-size:16px;","To further explore the impact of financial factors  
     on food insecurity in the U.S., we created a map to understand where the percentage 
     of food-insecure people is greater than the high poverty threshold.", 
-    em("In other words, it examines where people are not poor yet still food insecure."), 
-    "Our map reveals that the", strong("American Midwest"), "tends to have more 
+      em("In other words, it examines where people are not poor yet still food insecure."), 
+      "Our map reveals that the", strong("American Midwest"), "tends to have more 
     financially-able food insecure people. Additionally,", strong("Vermont"), 
-    "stands out as a state with consistently high levels of food insecure 
+      "stands out as a state with consistently high levels of food insecure 
     people who have the resources to purchase healthy foods. While there 
     are many explanations for this,", strong("it suggests that these states 
     tend to have more food deserts, where there are fewer ways to access 
     and purchase nutritious foods.")),
-  p(style = "font-size:16px;","Overall, our study sheds light on the 
+    p(style = "font-size:16px;","Overall, our study sheds light on the 
     complexity of U.S. food insecurity. While general food insecurity rates 
     are decreasing, factors such as demographics, budget shortfalls,
     and potential food deserts continue to limit access to food. The 
@@ -165,13 +165,13 @@ concl_panel <-tabPanel(
     help to vulnerable states and provide insight into social factors
     influencing food insecurity."),
     img(src ="field.jpg"),
-))
+  ))
 
 # Define UI
 ui <- navbarPage(
   "Food Insecurity in the U.S.",
   theme = shinytheme("united"),
-   intro_panel,
+  intro_panel,
   line_panel,
   bar_panel,
   map_panel,
