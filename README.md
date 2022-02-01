@@ -1,4 +1,4 @@
-dataset# Deliverable 1 - Project Proposal
+# Deliverable 1 - Project Proposal
 ## Domain of Interest - Food Assistance and Nutrition in the US
 
 ### Why are we interested in this field/domain?
